@@ -87,8 +87,7 @@
 
 
 
-<meta name="description" content="#使用qemu模拟器搭建arm运行环境《嵌入式Linux》实验课
-环境
+<meta name="description" content="#使用qemu模拟器搭建arm运行环境环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -97,8 +96,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:title" content="使用qemu模拟器搭建arm运行环境">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/index.html">
 <meta property="og:site_name" content="YanZhirun's blog">
-<meta property="og:description" content="#使用qemu模拟器搭建arm运行环境《嵌入式Linux》实验课
-环境
+<meta property="og:description" content="#使用qemu模拟器搭建arm运行环境环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -106,11 +104,10 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_panic.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_start.png">
-<meta property="og:updated_time" content="2017-02-14T08:51:07.000Z">
+<meta property="og:updated_time" content="2017-02-14T09:40:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用qemu模拟器搭建arm运行环境">
-<meta name="twitter:description" content="#使用qemu模拟器搭建arm运行环境《嵌入式Linux》实验课
-环境
+<meta name="twitter:description" content="#使用qemu模拟器搭建arm运行环境环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -382,8 +379,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
       
 
       
-        <h2 id="使用qemu模拟器搭建arm运行环境"><a href="#使用qemu模拟器搭建arm运行环境" class="headerlink" title="#使用qemu模拟器搭建arm运行环境"></a>#使用qemu模拟器搭建arm运行环境</h2><p>《嵌入式Linux》实验课</p>
-<p><strong>环境</strong></p>
+        <h2 id="使用qemu模拟器搭建arm运行环境"><a href="#使用qemu模拟器搭建arm运行环境" class="headerlink" title="#使用qemu模拟器搭建arm运行环境"></a>#使用qemu模拟器搭建arm运行环境</h2><p><strong>环境</strong></p>
 <ul>
 <li>Vmware 12.5.1</li>
 <li>Ubuntu 16.04 64位</li>
@@ -434,7 +430,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <li><p>安装qemu模拟器</p>
 <ul>
 <li>下载源码（自行安装配置 <strong><em>git</em></strong>）<blockquote>
-<p>$ git   clone   git://git.qemu-project.org/qemu.git<br>$ cd   qemu</p>
+<p>$ git clone git://git.qemu-project.org/qemu.git<br>$ cd   qemu</p>
 </blockquote>
 </li>
 <li>检出分支<blockquote>
@@ -464,7 +460,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </li>
 </ol>
 <pre><code>* 其他可能需要的库（可先跳过该步骤遇到需要再根据提示安装）
-[官网](http://wiki.qemu.org/Hosts/Linux)列出如下:
+    [官网参考](http://wiki.qemu.org/Hosts/Linux)
+
     &gt;$ sudo apt-get install git-email
     &gt;
     &gt;$ sudo apt-get install libaio-dev libbluetooth-dev libbrlapi-dev libbz2-dev
@@ -548,9 +545,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <blockquote>
 <p>$make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm O=./out_vexpress_3_16     menuconfig</p>
 </blockquote>
-<p> 选项位于：<br> System Type  —&gt;</p>
-<pre><code>[ ] Enable the L2x0 outer cache controller
-</code></pre> <img src="/2017/02/14/2017-2-14/kernel_menuconfig.png" alt="[kernel_menuconfig]" title="[kernel_menuconfig]">
+<p> 选项位于：<br> System Type  —&gt;[] Enable the L2x0 outer cache controller</p>
+ <img src="/2017/02/14/2017-2-14/kernel_menuconfig.png" alt="[kernel_menuconfig]" title="[kernel_menuconfig]">
 <p> <strong>取消该项</strong>  <strong>其他保持默认不变</strong></p>
 </li>
 <li><p>编译</p>
