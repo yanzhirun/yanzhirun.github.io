@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="助教课程," />
 
 
 
@@ -87,7 +87,8 @@
 
 
 
-<meta name="description" content="#使用qemu模拟器搭建arm运行环境环境
+<meta name="description" content="使用qemu模拟器搭建arm运行环境
+环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -96,18 +97,19 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:title" content="使用qemu模拟器搭建arm运行环境">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/index.html">
 <meta property="og:site_name" content="YanZhirun's blog">
-<meta property="og:description" content="#使用qemu模拟器搭建arm运行环境环境
+<meta property="og:description" content="使用qemu模拟器搭建arm运行环境
+环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_panic.png">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_start.png">
-<meta property="og:updated_time" content="2017-02-15T06:56:51.000Z">
+<meta property="og:updated_time" content="2017-02-15T07:14:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用qemu模拟器搭建arm运行环境">
-<meta name="twitter:description" content="#使用qemu模拟器搭建arm运行环境环境
+<meta name="twitter:description" content="使用qemu模拟器搭建arm运行环境
+环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -388,7 +390,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
       
 
       
-        <h2 id="使用qemu模拟器搭建arm运行环境"><a href="#使用qemu模拟器搭建arm运行环境" class="headerlink" title="#使用qemu模拟器搭建arm运行环境"></a>#使用qemu模拟器搭建arm运行环境</h2><p><strong>环境</strong></p>
+        <h1 id="使用qemu模拟器搭建arm运行环境"><a href="#使用qemu模拟器搭建arm运行环境" class="headerlink" title="使用qemu模拟器搭建arm运行环境"></a>使用qemu模拟器搭建arm运行环境</h1><hr>
+<p><strong>环境</strong></p>
 <ul>
 <li>Vmware 12.5.1</li>
 <li>Ubuntu 16.04 64位</li>
@@ -470,23 +473,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </li>
 </ol>
 <pre><code>* 其他可能需要的库（可先跳过该步骤遇到需要再根据提示安装）
-    [官网参考](http://wiki.qemu.org/Hosts/Linux)
 
-    &gt;$ sudo apt-get install git-email
-    &gt;
-    &gt;$ sudo apt-get install libaio-dev libbluetooth-dev libbrlapi-dev libbz2-dev
-    &gt;
-    &gt;$ sudo apt-get install libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev
-    &gt;
-    &gt;$ sudo apt-get install libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev
-    &gt;
-    &gt;$ sudo apt-get install librbd-dev librdmacm-dev
-    &gt;
-    &gt;$ sudo apt-get install libsasl2-dev libsdl1.2-dev libseccomp-dev libsnappy-dev libssh2-1-dev
-    &gt;
-    &gt;$ sudo apt-get install libvde-dev libvdeplug-dev libvte-2.90-dev libxen-dev liblzo2-dev
-    &gt;
-    &gt;$ sudo apt-get install valgrind xfslibs-dev
+    参考官网: &lt;http://wiki.qemu.org/Hosts/Linux&gt;
 </code></pre><h2 id="二-安装qemu模拟器"><a href="#二、-安装qemu模拟器" class="headerlink" title="二、    安装qemu模拟器"></a>二、    安装qemu模拟器</h2><ol>
 <li><p>编译安装</p>
 <blockquote>
@@ -608,8 +596,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </li>
 </ol>
 </li>
-<li><p>制作根文件系统镜像</p>
-<ol>
+<li>制作根文件系统镜像<ol>
 <li>生成32M大小的镜像<blockquote>
 <p>$ dd   if=/dev/zero   of=a9rootfs.ext3     bs=1M    count=32</p>
 </blockquote>
@@ -618,20 +605,21 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <p>$ mkfs.ext3   a9rootfs.ext3</p>
 </blockquote>
 </li>
-<li><p>将文件拷贝到镜像中</p>
-<blockquote>
+<li>将文件拷贝到镜像中<blockquote>
 <p>$sudo   mkdir   tmpfs</p>
 <p>$sudo   mount  -t   ext3 a9rootfs.ext3    tmpfs/   -o     loop</p>
 <p>$cp  rootfs/*    tmpfs/   -r</p>
 <p>$sudo  umount   tmpfs</p>
-<h2 id="六-系统启动运行"><a href="#六、-系统启动运行" class="headerlink" title="六、    系统启动运行"></a>六、    系统启动运行</h2><p>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：<br>$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  “root=/dev/mmcblk0   console=ttyAMA0”  -sd a9rootfs.ext3</p>
 </blockquote>
-<img src="/2017/02/14/2017-2-14/kernel_start.png" alt="[kernel_start]" title="[kernel_start]">
 </li>
 </ol>
 </li>
 </ul>
+<h2 id="六-系统启动运行"><a href="#六、-系统启动运行" class="headerlink" title="六、    系统启动运行"></a>六、    系统启动运行</h2><pre><code>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：
+&gt;$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  &quot;root=/dev/mmcblk0   console=ttyAMA0&quot;  -sd a9rootfs.ext3
 
+{% asset_img kernel_start.png [kernel_start]%}
+</code></pre>
       
     </div>
 
@@ -651,6 +639,12 @@ Linux 3.16.1 （高版本无法启动qemu）">
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/助教课程/" rel="tag"># 助教课程</a>
+          
+        </div>
       
 
       
@@ -759,6 +753,13 @@ Linux 3.16.1 （高版本无法启动qemu）">
           
 
           
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
@@ -818,7 +819,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用qemu模拟器搭建arm运行环境"><span class="nav-number">1.</span> <span class="nav-text">#使用qemu模拟器搭建arm运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-安装交叉编译工具链下载必备库"><span class="nav-number">2.</span> <span class="nav-text">一、    安装交叉编译工具链下载必备库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-安装qemu模拟器"><span class="nav-number">3.</span> <span class="nav-text">二、    安装qemu模拟器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-编译u-boot"><span class="nav-number">4.</span> <span class="nav-text">三、    编译u-boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-编译arm架构内核"><span class="nav-number">5.</span> <span class="nav-text">四、    编译arm架构内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-制作文件系统"><span class="nav-number">6.</span> <span class="nav-text">五、    制作文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-系统启动运行"><span class="nav-number">7.</span> <span class="nav-text">六、    系统启动运行</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用qemu模拟器搭建arm运行环境"><span class="nav-text">使用qemu模拟器搭建arm运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-安装交叉编译工具链下载必备库"><span class="nav-text">一、    安装交叉编译工具链下载必备库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-安装qemu模拟器"><span class="nav-text">二、    安装qemu模拟器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-编译u-boot"><span class="nav-text">三、    编译u-boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-编译arm架构内核"><span class="nav-text">四、    编译arm架构内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-制作文件系统"><span class="nav-text">五、    制作文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-系统启动运行"><span class="nav-text">六、    系统启动运行</span></a></li></ol></li></ol></div>
             
 
           </div>
