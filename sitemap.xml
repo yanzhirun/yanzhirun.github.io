@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yanzhirun.github.io/aboutme/index.html</loc>
+    <loc>https://yanzhirun.github.io/tags/index.html</loc>
+    
+    <lastmod>2017-02-15T11:42:32.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yanzhirun.github.io/about/index.html</loc>
     
     <lastmod>2017-02-15T11:24:29.934Z</lastmod>
     
@@ -19,13 +26,6 @@
     <loc>https://yanzhirun.github.io/2017/02/12/2017-2-12/</loc>
     
     <lastmod>2017-02-15T07:49:27.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yanzhirun.github.io/tags/index.html</loc>
-    
-    <lastmod>2017-02-15T07:35:33.759Z</lastmod>
     
   </url>
   
