@@ -104,7 +104,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_panic.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_start.png">
-<meta property="og:updated_time" content="2017-02-14T09:45:21.640Z">
+<meta property="og:updated_time" content="2017-02-15T06:56:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用qemu模拟器搭建arm运行环境">
 <meta name="twitter:description" content="#使用qemu模拟器搭建arm运行环境环境
@@ -351,7 +351,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/02/14/2017-2-14/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/14/2017-2-14/" itemprop="commentCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/2017-2-14/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +422,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <li>请使用实验提供的正确版本</li>
 <li>确认输入命令是否正确，请使用tab键补全，不要直接复制粘贴</li>
 <li>请选择网易源、清华源、阿里源（科大源近期故障）</li>
-<li>vmware虚拟机安装vmware tool （不要卸载光驱、软驱，屏幕自适应）<br> <br>##一、    安装交叉编译工具链下载必备库</li>
+<li>vmware虚拟机安装vmware tool （不要卸载光驱、软驱，屏幕自适应）
+ <h2 id="一-安装交叉编译工具链下载必备库"><a href="#一、-安装交叉编译工具链下载必备库" class="headerlink" title="一、    安装交叉编译工具链下载必备库"></a>一、    安装交叉编译工具链下载必备库</h2></li>
 </ul>
 <ol>
 <li><p>创建工作目录</p>
@@ -470,8 +471,23 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </ol>
 <pre><code>* 其他可能需要的库（可先跳过该步骤遇到需要再根据提示安装）
     [官网参考](http://wiki.qemu.org/Hosts/Linux)
-</code></pre><p>##二、    安装qemu模拟器</p>
-<ol>
+
+    &gt;$ sudo apt-get install git-email
+    &gt;
+    &gt;$ sudo apt-get install libaio-dev libbluetooth-dev libbrlapi-dev libbz2-dev
+    &gt;
+    &gt;$ sudo apt-get install libcap-dev libcap-ng-dev libcurl4-gnutls-dev libgtk-3-dev
+    &gt;
+    &gt;$ sudo apt-get install libibverbs-dev libjpeg8-dev libncurses5-dev libnuma-dev
+    &gt;
+    &gt;$ sudo apt-get install librbd-dev librdmacm-dev
+    &gt;
+    &gt;$ sudo apt-get install libsasl2-dev libsdl1.2-dev libseccomp-dev libsnappy-dev libssh2-1-dev
+    &gt;
+    &gt;$ sudo apt-get install libvde-dev libvdeplug-dev libvte-2.90-dev libxen-dev liblzo2-dev
+    &gt;
+    &gt;$ sudo apt-get install valgrind xfslibs-dev
+</code></pre><h2 id="二-安装qemu模拟器"><a href="#二、-安装qemu模拟器" class="headerlink" title="二、    安装qemu模拟器"></a>二、    安装qemu模拟器</h2><ol>
 <li><p>编译安装</p>
 <blockquote>
 <p>$ mkdir   build  (当前路径为 ~/qemu_linux )</p>
@@ -495,8 +511,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </blockquote>
 </li>
 </ol>
-<p>##三、    编译u-boot</p>
-<ol>
+<h2 id="三-编译u-boot"><a href="#三、-编译u-boot" class="headerlink" title="三、    编译u-boot"></a>三、    编译u-boot</h2><ol>
 <li><p>下载u-boot</p>
 <blockquote>
 <p>$ cd     ~/qemu_linux<br>$ wget    ftp://ftp.denx.de/pub/u-boot/u-boot-2016.09.tar.bz2   </p>
@@ -520,8 +535,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 </blockquote>
 </li>
 </ol>
-<p>##四、    编译arm架构内核</p>
-<ol>
+<h2 id="四-编译arm架构内核"><a href="#四、-编译arm架构内核" class="headerlink" title="四、    编译arm架构内核"></a>四、    编译arm架构内核</h2><ol>
 <li>下载内核<blockquote>
 <p>$ wget   <a href="https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.1.tar.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.1.tar.gz</a> </p>
 </blockquote>
@@ -558,8 +572,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <p> 出现kernel panic<br> 问题在于需要挂载文件系统</p>
 </li>
 </ol>
-<p>##五、    制作文件系统</p>
-<ul>
+<h2 id="五-制作文件系统"><a href="#五、-制作文件系统" class="headerlink" title="五、    制作文件系统"></a>五、    制作文件系统</h2><ul>
 <li><p>形成根目录结构</p>
 <ol>
 <li><p>下载busybox</p>
@@ -611,7 +624,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <p>$sudo   mount  -t   ext3 a9rootfs.ext3    tmpfs/   -o     loop</p>
 <p>$cp  rootfs/*    tmpfs/   -r</p>
 <p>$sudo  umount   tmpfs</p>
-<p>##六、    系统启动运行<br>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：<br>$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  “root=/dev/mmcblk0   console=ttyAMA0”  -sd a9rootfs.ext3</p>
+<h2 id="六-系统启动运行"><a href="#六、-系统启动运行" class="headerlink" title="六、    系统启动运行"></a>六、    系统启动运行</h2><p>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：<br>$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  “root=/dev/mmcblk0   console=ttyAMA0”  -sd a9rootfs.ext3</p>
 </blockquote>
 <img src="/2017/02/14/2017-2-14/kernel_start.png" alt="[kernel_start]" title="[kernel_start]">
 </li>
@@ -682,11 +695,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="ds-thread" data-thread-key="2017/02/14/2017-2-14/"
+           data-title="使用qemu模拟器搭建arm运行环境" data-url="https://yanzhirun.github.io/2017/02/14/2017-2-14/">
       </div>
     
   </div>
@@ -808,7 +818,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用qemu模拟器搭建arm运行环境"><span class="nav-number">1.</span> <span class="nav-text">#使用qemu模拟器搭建arm运行环境</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用qemu模拟器搭建arm运行环境"><span class="nav-number">1.</span> <span class="nav-text">#使用qemu模拟器搭建arm运行环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-安装交叉编译工具链下载必备库"><span class="nav-number">2.</span> <span class="nav-text">一、    安装交叉编译工具链下载必备库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-安装qemu模拟器"><span class="nav-number">3.</span> <span class="nav-text">二、    安装qemu模拟器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-编译u-boot"><span class="nav-number">4.</span> <span class="nav-text">三、    编译u-boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-编译arm架构内核"><span class="nav-number">5.</span> <span class="nav-text">四、    编译arm架构内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-制作文件系统"><span class="nav-number">6.</span> <span class="nav-text">五、    制作文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-系统启动运行"><span class="nav-number">7.</span> <span class="nav-text">六、    系统启动运行</span></a></li></ol></div>
             
 
           </div>
@@ -934,38 +944,32 @@ Linux 3.16.1 （高版本无法启动qemu）">
 
   
 
-
-
+  
+    
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'zhirun';
-      var disqus_identifier = '2017/02/14/2017-2-14/';
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yanzhirun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
-      var disqus_title = "使用qemu模拟器搭建arm运行环境";
-
-
-      function run_disqus_script(disqus_script) {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
-        };
-        run_disqus_script('embed.js');
-      
-
-    </script>
   
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
 
 
 
