@@ -357,7 +357,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/02/12/2017-2-12/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/12/2017-2-12/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/02/12/2017-2-12/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,7 +394,7 @@
       
 
       
-        <h1 id="This-is-my-first-blog"><a href="#This-is-my-first-blog" class="headerlink" title="This is my first blog"></a>This is my first blog</h1><p>本站采用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> + github pages 搭建，使用<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT </a>主题。<br>目前完成环境搭建和部署。<br>之后会对细节进行修改，并希望以此作为长期使用的个人博客。</p>
+        <h1 id="this-is-my-first-blog"><a href="#This-is-my-first-blog" class="headerlink" title="This is my first blog"></a>This is my first blog</h1><p>本站采用<a href="https://hexo.io/zh-cn/" target="_blank" rel="external">Hexo</a> + github pages 搭建，使用<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT </a>主题。<br>目前完成环境搭建和部署。<br>之后会对细节进行修改，并希望以此作为长期使用的个人博客。</p>
 <a id="more"></a>
 <p>02.12更新<br>更新用户头像<br>添加多说评论模块</p>
 <p>02.15更新<br>添加<a href="https://yanzhirun.github.io/aboutme/">个人简历</a><br>添加阅读次数</p>
@@ -467,8 +467,11 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/12/2017-2-12/"
-           data-title="搭建小结" data-url="https://yanzhirun.github.io/2017/02/12/2017-2-12/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -590,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-is-my-first-blog"><span class="nav-number">1.</span> <span class="nav-text">This is my first blog</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#this-is-my-first-blog"><span class="nav-number">1.</span> <span class="nav-text">This is my first blog</span></a></li></ol></div>
             
 
           </div>
@@ -716,32 +719,38 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"yanzhirun"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+    <script type="text/javascript">
+      var disqus_shortname = 'zhirun';
+      var disqus_identifier = '2017/02/12/2017-2-12/';
+
+      var disqus_title = "搭建小结";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
   
-
-
-
 
 
 
