@@ -87,8 +87,7 @@
 
 
 
-<meta name="description" content="使用qemu模拟器搭建arm运行环境
-环境
+<meta name="description" content="环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
@@ -97,24 +96,19 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:title" content="使用qemu模拟器搭建arm运行环境">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/index.html">
 <meta property="og:site_name" content="YanZhirun's blog">
-<meta property="og:description" content="使用qemu模拟器搭建arm运行环境
-环境
+<meta property="og:description" content="环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_panic.png">
-<meta property="og:updated_time" content="2017-02-15T07:14:45.000Z">
+<meta property="og:updated_time" content="2017-02-15T07:29:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用qemu模拟器搭建arm运行环境">
-<meta name="twitter:description" content="使用qemu模拟器搭建arm运行环境
-环境
+<meta name="twitter:description" content="环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
-<meta name="twitter:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
 
 
 
@@ -344,6 +338,28 @@ Linux 3.16.1 （高版本无法启动qemu）">
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/助教课程/" itemprop="url" rel="index">
+                    <span itemprop="name">助教课程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -390,8 +406,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
       
 
       
-        <h1 id="使用qemu模拟器搭建arm运行环境"><a href="#使用qemu模拟器搭建arm运行环境" class="headerlink" title="使用qemu模拟器搭建arm运行环境"></a>使用qemu模拟器搭建arm运行环境</h1><hr>
-<p><strong>环境</strong></p>
+        <p><strong>环境</strong></p>
 <ul>
 <li>Vmware 12.5.1</li>
 <li>Ubuntu 16.04 64位</li>
@@ -426,196 +441,117 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <li>确认输入命令是否正确，请使用tab键补全，不要直接复制粘贴</li>
 <li>请选择网易源、清华源、阿里源（科大源近期故障）</li>
 <li>vmware虚拟机安装vmware tool （不要卸载光驱、软驱，屏幕自适应）
- <h2 id="一-安装交叉编译工具链下载必备库"><a href="#一、-安装交叉编译工具链下载必备库" class="headerlink" title="一、    安装交叉编译工具链下载必备库"></a>一、    安装交叉编译工具链下载必备库</h2></li>
-</ul>
-<ol>
-<li><p>创建工作目录</p>
-<blockquote>
+ <h2 id="一-安装交叉编译工具链下载必备库"><a href="#一、-安装交叉编译工具链下载必备库" class="headerlink" title="一、    安装交叉编译工具链下载必备库"></a>一、    安装交叉编译工具链下载必备库</h2><h3 id="1-创建工作目录"><a href="#1-创建工作目录" class="headerlink" title="1. 创建工作目录"></a>1. 创建工作目录</h3><blockquote>
 <p>$ mkdir ~/qemu_linux</p>
 <p>$ cd ~/qemu_linux</p>
 </blockquote>
 </li>
-<li><p>安装arm交叉编译工具（可以通过crosstool-ng开源软件构建，本方法直接通过apt下载）</p>
-<blockquote>
-<p>$ sudo  apt-get  install  gcc-arm-linux-gnueabi</p>
-</blockquote>
-</li>
-<li><p>安装qemu模拟器</p>
-<ul>
-<li>下载源码（自行安装配置 <strong><em>git</em></strong>）<blockquote>
-<p>$ git clone git://git.qemu-project.org/qemu.git<br>$ cd   qemu</p>
-</blockquote>
-</li>
-<li>检出分支<blockquote>
-<p>$ git   checkout   remotes/origin/stable-2.4  -b  stable-2.4</p>
-</blockquote>
-</li>
-<li><p>换源</p>
-<pre><code>选择 网易、 阿里、 清华、 科大源 ，点击reload
-</code></pre><blockquote>
-<p>$ sudo  apt-get  update</p>
-</blockquote>
-</li>
-<li><p>编译前安装依赖库</p>
-<p>  遇到无法apt安装软件 缺少依赖库，或者循环依赖，先看提示解决方法，或者尝试 <code>$sudo apt-get upgrade</code></p>
-<blockquote>
-<p>$ sudo  apt-get  install  build-essential  kernel-package  libncurses5-dev</p>
-<blockquote>
-<p>build-essential  (基本的编程库（gcc, make等） </p>
-<p>kernel-package   (Debian 系统里生成 kernel-image 的一些配置文件和工具) </p>
-<p>libncurses5-dev  (meke menuconfig要调用的）</p>
-</blockquote>
-<p>$ sudo apt-get  install   libglib2.0-dev  libfdt-dev  libpixman-1-dev zlib1g-dev</p>
-</blockquote>
-<p>  <em>(若出错，请尝试分开安装)</em></p>
-</li>
 </ul>
-</li>
-</ol>
-<pre><code>* 其他可能需要的库（可先跳过该步骤遇到需要再根据提示安装）
+<h3 id="2-安装arm交叉编译工具可以通过crosstool-ng开源软件构建本方法直接通过apt下载"><a href="#2-安装arm交叉编译工具（可以通过crosstool-ng开源软件构建，本方法直接通过apt下载）" class="headerlink" title="2. 安装arm交叉编译工具（可以通过crosstool-ng开源软件构建，本方法直接通过apt下载）"></a>2. 安装arm交叉编译工具（可以通过crosstool-ng开源软件构建，本方法直接通过apt下载）</h3><pre><code>&gt;$ sudo  apt-get  install  gcc-arm-linux-gnueabi
+</code></pre><h3 id="3-安装qemu模拟器"><a href="#3-安装qemu模拟器" class="headerlink" title="3. 安装qemu模拟器"></a>3. 安装qemu模拟器</h3><pre><code>* 下载源码（自行安装配置 ***git***）
+    &gt;$ git clone git://git.qemu-project.org/qemu.git
+    &gt;$ cd   qemu
+* 检出分支
+    &gt;$ git   checkout   remotes/origin/stable-2.4  -b  stable-2.4
+* 换源
 
-    参考官网: &lt;http://wiki.qemu.org/Hosts/Linux&gt;
-</code></pre><h2 id="二-安装qemu模拟器"><a href="#二、-安装qemu模拟器" class="headerlink" title="二、    安装qemu模拟器"></a>二、    安装qemu模拟器</h2><ol>
-<li><p>编译安装</p>
-<blockquote>
-<p>$ mkdir   build  (当前路径为 ~/qemu_linux )</p>
-<p>$ cd   build</p>
-</blockquote>
-</li>
-<li><p>将配置生成的中间文件放到build中</p>
-<blockquote>
-<p>$ ../qemu/configure   –target-list=arm-softmmu   –audio-drv-list=</p>
-<p>$ make</p>
-<p>$ make   install //（该步骤需要根据机器情况安装相应的依赖库）</p>
-</blockquote>
-<p>直接安装也可（简单粗暴）</p>
-<blockquote>
-<p>$ sudo   apt-get   install   qemu </p>
-</blockquote>
-</li>
-<li><p>安装完成查看qemu支持哪些板子</p>
-<blockquote>
-<p>$ qemu-system-arm   –M  ？</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="三-编译u-boot"><a href="#三、-编译u-boot" class="headerlink" title="三、    编译u-boot"></a>三、    编译u-boot</h2><ol>
-<li><p>下载u-boot</p>
-<blockquote>
-<p>$ cd     ~/qemu_linux<br>$ wget    ftp://ftp.denx.de/pub/u-boot/u-boot-2016.09.tar.bz2   </p>
-</blockquote>
-</li>
-<li><p>解压</p>
-<blockquote>
-<p>$ tar   jxvf    u-boot-2016.09.tar.bz2</p>
-<p>$ cd   u-boot-2016.09</p>
-</blockquote>
-</li>
-<li><p>配置、编译</p>
-<blockquote>
-<p>$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- vexpress_ca9x4_defconfig</p>
-<p>$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-</p>
-</blockquote>
-</li>
-<li><p>qemu中u-boot启动</p>
-<blockquote>
-<p>$qemu-system-arm  -M vexpress-a9 -kernel u-boot -nographic -m 128M</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="四-编译arm架构内核"><a href="#四、-编译arm架构内核" class="headerlink" title="四、    编译arm架构内核"></a>四、    编译arm架构内核</h2><ol>
-<li>下载内核<blockquote>
-<p>$ wget   <a href="https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.1.tar.gz" target="_blank" rel="external">https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.1.tar.gz</a> </p>
-</blockquote>
-</li>
-<li>解压<blockquote>
-<p>$ tar  zcvf  linux-3.16.1.tar.gz<br>$ cd  linux-3.16.1 </p>
-</blockquote>
-</li>
-<li>生成vexpress-a9 的config文件 （建议先执行make clean  &amp;&amp; make mrproper）<blockquote>
-<p>$make   CROSS_COMPILE=arm-linux-gnueabi-    ARCH=arm O=./out_vexpress_3_16    vexpress_defconfig</p>
-</blockquote>
-</li>
-<li><p>执行内核配置 </p>
-<blockquote>
-<p>$make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm O=./out_vexpress_3_16     menuconfig</p>
-</blockquote>
-<p> 选项位于：<br> System Type  —&gt;[] Enable the L2x0 outer cache controller</p>
- <img src="/2017/02/14/2017-2-14/kernel_menuconfig.png" alt="[kernel_menuconfig]" title="[kernel_menuconfig]">
-<p> <strong>取消该项</strong>  <strong>其他保持默认不变</strong></p>
-</li>
-<li><p>编译</p>
-<blockquote>
-<p>$make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm  O=./out_vexpress_3_16 zImage -j2</p>
-</blockquote>
-<p> 生成的内核镱像位于./out_vexpress_3_16/arch/arm/boot/zImage</p>
-</li>
-<li><p>测试qemu 能否正常启动 </p>
-<blockquote>
-<p>$ cp  ./out_vexpress_3_16/arch/arm/boot/zImage     ~/qemu_linux </p>
-<p>$ cd   ~/qemu_linux</p>
-<p>$qemu-system-arm -M vexpress-a9 -m 512M -kernel /home/ivan/kernel_git/linux/arch/arm/boot/zImage -nographic -append “console=ttyAMA0”</p>
-</blockquote>
- <img src="/2017/02/14/2017-2-14/kernel_panic.png" alt="[kernel_panic]" title="[kernel_panic]">
-<p> 出现kernel panic<br> 问题在于需要挂载文件系统</p>
-</li>
-</ol>
-<h2 id="五-制作文件系统"><a href="#五、-制作文件系统" class="headerlink" title="五、    制作文件系统"></a>五、    制作文件系统</h2><ul>
-<li><p>形成根目录结构</p>
-<ol>
-<li><p>下载busybox</p>
-<blockquote>
-<p>$ wget   <a href="https://busybox.net/downloads/busybox-1.20.2.tar.bz2" target="_blank" rel="external">https://busybox.net/downloads/busybox-1.20.2.tar.bz2</a> </p>
-<p>$make defconfig</p>
-<p>$make  CROSS_COMPILE=arm-linux-gnueabi-</p>
-<p>$make  install</p>
-</blockquote>
-<p>安装完成后，会在busybox目录下生成_install目录，该目录下的程序就是单板运行所需要的命令。<br>先在Ubuntu主机环境下，形成目录结构，里面存放的文件和目录与单板上运行所需要的目录结构完全一样，然后再打包成镜像（在开发板看来就是SD卡），这个临时的目录结构称为根目录</p>
-</li>
-<li><p>创建rootfs目录（根目录），根文件系统内的文件全部放到这里</p>
-<blockquote>
-<p>$ sudo   mkdir   rootfs</p>
-</blockquote>
-</li>
-<li><p>拷贝busybox命令到根目录下</p>
-<blockquote>
-<p>$sudo   cp   busybox-1.20.2/_install/*   -r   rootfs/</p>
-</blockquote>
-</li>
-<li><p>从工具链中拷贝运行库到lib目录下</p>
-<blockquote>
-<p>$sudo cp -P /usr/arm-linux-gnueabi/lib/* rootfs/lib/</p>
-</blockquote>
-</li>
-<li>创建4个tty端终设备<blockquote>
-<p>$sudo   mknod   rootfs/dev/tty1   c   4   1</p>
-<p>$sudo   mknod   rootfs/dev/tty2   c   4   2</p>
-<p>$sudo   mknod   rootfs/dev/tty3   c   4   3</p>
-<p>$sudo   mknod   rootfs/dev/tty4   c   4   4</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li>制作根文件系统镜像<ol>
-<li>生成32M大小的镜像<blockquote>
-<p>$ dd   if=/dev/zero   of=a9rootfs.ext3     bs=1M    count=32</p>
-</blockquote>
-</li>
-<li>格式化成ext3文件系统<blockquote>
-<p>$ mkfs.ext3   a9rootfs.ext3</p>
-</blockquote>
-</li>
-<li>将文件拷贝到镜像中<blockquote>
-<p>$sudo   mkdir   tmpfs</p>
-<p>$sudo   mount  -t   ext3 a9rootfs.ext3    tmpfs/   -o     loop</p>
-<p>$cp  rootfs/*    tmpfs/   -r</p>
-<p>$sudo  umount   tmpfs</p>
-</blockquote>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="六-系统启动运行"><a href="#六、-系统启动运行" class="headerlink" title="六、    系统启动运行"></a>六、    系统启动运行</h2><pre><code>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：
+    选择 网易、 阿里、 清华、 科大源
+
+    &gt;$ sudo  apt-get  update
+
+* 编译前安装依赖库
+
+    遇到无法apt安装软件 缺少依赖库，或者循环依赖，先看提示解决方法，或者尝试 `$sudo apt-get upgrade`
+
+    &gt;$ sudo  apt-get  install  build-essential  kernel-package  libncurses5-dev
+    &gt;
+    &gt;$ sudo apt-get  install   libglib2.0-dev  libfdt-dev  libpixman-1-dev zlib1g-dev
+
+    build-essential  (基本的编程库（gcc, make等） 
+
+    kernel-package   (Debian 系统里生成 kernel-image 的一些配置文件和工具) 
+
+    libncurses5-dev  (meke menuconfig要调用的）
+
+    *(若出错，请尝试分开安装，可先跳过该步骤遇到需要再根据提示安装)* 
+
+    其他可能需要的库，参考官网: &lt;http://wiki.qemu.org/Hosts/Linux&gt;
+</code></pre><h2 id="二-安装qemu模拟器"><a href="#二、-安装qemu模拟器" class="headerlink" title="二、    安装qemu模拟器"></a>二、    安装qemu模拟器</h2><h3 id="1-编译安装"><a href="#1-编译安装" class="headerlink" title="1. 编译安装"></a>1. 编译安装</h3><pre><code>&gt;$ mkdir   build  (当前路径为 ~/qemu_linux )
+&gt;
+&gt;$ cd   build
+</code></pre><h3 id="2-将配置生成的中间文件放到build中"><a href="#2-将配置生成的中间文件放到build中" class="headerlink" title="2.    将配置生成的中间文件放到build中"></a>2.    将配置生成的中间文件放到build中</h3><pre><code>&gt;$ ../qemu/configure   --target-list=arm-softmmu   --audio-drv-list=
+&gt;
+&gt;$ make
+&gt;
+&gt;$ make   install //（该步骤需要根据机器情况安装相应的依赖库）
+
+直接安装也可（简单粗暴）
+&gt;$ sudo   apt-get   install   qemu 
+</code></pre><h3 id="3-安装完成查看qemu支持哪些板子"><a href="#3-安装完成查看qemu支持哪些板子" class="headerlink" title="3. 安装完成查看qemu支持哪些板子"></a>3. 安装完成查看qemu支持哪些板子</h3><pre><code>&gt;$ qemu-system-arm   –M  ？
+</code></pre><h2 id="三-编译u-boot"><a href="#三、-编译u-boot" class="headerlink" title="三、    编译u-boot"></a>三、    编译u-boot</h2><h3 id="1-下载u-boot"><a href="#1-下载u-boot" class="headerlink" title="1. 下载u-boot"></a>1. 下载u-boot</h3><pre><code>&gt;$ cd     ~/qemu_linux
+&gt;$ wget    ftp://ftp.denx.de/pub/u-boot/u-boot-2016.09.tar.bz2   
+</code></pre><h3 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h3><pre><code>&gt;$ tar   jxvf    u-boot-2016.09.tar.bz2
+&gt;
+&gt;$ cd   u-boot-2016.09
+</code></pre><h3 id="3-配置-编译"><a href="#3-配置、编译" class="headerlink" title="3. 配置、编译"></a>3. 配置、编译</h3><pre><code>&gt;$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- vexpress_ca9x4_defconfig
+&gt;
+&gt;$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi-
+</code></pre><h3 id="4-qemu中u-boot启动"><a href="#4-qemu中u-boot启动" class="headerlink" title="4. qemu中u-boot启动"></a>4. qemu中u-boot启动</h3><pre><code>&gt;$qemu-system-arm  -M vexpress-a9 -kernel u-boot -nographic -m 128M
+</code></pre><h2 id="四-编译arm架构内核"><a href="#四、-编译arm架构内核" class="headerlink" title="四、    编译arm架构内核"></a>四、    编译arm架构内核</h2><h3 id="1-下载内核"><a href="#1-下载内核" class="headerlink" title="1. 下载内核"></a>1. 下载内核</h3><pre><code>&gt;$ wget   https://www.kernel.org/pub/linux/kernel/v3.x/linux-3.16.1.tar.gz 
+</code></pre><h3 id="2-解压"><a href="#2-解压-1" class="headerlink" title="2. 解压"></a>2. 解压</h3><pre><code>&gt;$ tar  zcvf  linux-3.16.1.tar.gz
+&gt;$ cd  linux-3.16.1 
+</code></pre><h3 id="4-生成vexpress-a9-的config文件-建议先执行make-clean-ampamp-make-mrproper"><a href="#4-生成vexpress-a9-的config文件-（建议先执行make-clean-amp-amp-make-mrproper）" class="headerlink" title="4. 生成vexpress-a9 的config文件 （建议先执行make clean  &amp;&amp; make mrproper）"></a>4. 生成vexpress-a9 的config文件 （建议先执行<code>make clean  &amp;&amp; make mrproper</code>）</h3><pre><code>&gt;$make   CROSS_COMPILE=arm-linux-gnueabi-    ARCH=arm O=./out_vexpress_3_16    vexpress_defconfig
+</code></pre><h3 id="5-执行内核配置"><a href="#5-执行内核配置" class="headerlink" title="5. 执行内核配置"></a>5. 执行内核配置</h3><pre><code>&gt;$make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm O=./out_vexpress_3_16     menuconfig
+
+选项位于：
+System Type  ---&gt;\[\] Enable the L2x0 outer cache controller
+
+{% asset_img kernel_menuconfig.png [kernel_menuconfig]%}
+
+**取消该项**  **其他保持默认不变**
+</code></pre><h3 id="6-编译"><a href="#6-编译" class="headerlink" title="6. 编译"></a>6. 编译</h3><pre><code>&gt;$make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm  O=./out_vexpress_3_16 zImage -j2
+
+生成的内核镱像位于./out_vexpress_3_16/arch/arm/boot/zImage
+</code></pre><h3 id="7-测试qemu-能否正常启动"><a href="#7-测试qemu-能否正常启动" class="headerlink" title="7. 测试qemu 能否正常启动"></a>7. 测试qemu 能否正常启动</h3><pre><code>&gt;$ cp  ./out_vexpress_3_16/arch/arm/boot/zImage     ~/qemu_linux 
+&gt;
+&gt;$ cd   ~/qemu_linux
+
+&gt;$qemu-system-arm -M vexpress-a9 -m 512M -kernel /home/ivan/kernel_git/linux/arch/arm/boot/zImage -nographic -append &quot;console=ttyAMA0&quot;
+
+{% asset_img kernel_panic.png [kernel_panic] %}
+出现kernel panic
+问题在于需要挂载文件系统
+</code></pre><h2 id="五-制作文件系统"><a href="#五、-制作文件系统" class="headerlink" title="五、    制作文件系统"></a>五、    制作文件系统</h2><h3 id="一形成根目录结构"><a href="#（一）形成根目录结构" class="headerlink" title="（一）形成根目录结构"></a>（一）形成根目录结构</h3><h4 id="1-下载busybox"><a href="#1-下载busybox" class="headerlink" title="1.    下载busybox"></a>1.    下载busybox</h4><pre><code>&gt;$ wget   https://busybox.net/downloads/busybox-1.20.2.tar.bz2 
+&gt;
+&gt;$make defconfig
+&gt;
+&gt;$make  CROSS_COMPILE=arm-linux-gnueabi-
+&gt;
+&gt;$make  install
+
+安装完成后，会在busybox目录下生成_install目录，该目录下的程序就是单板运行所需要的命令。
+先在Ubuntu主机环境下，形成目录结构，里面存放的文件和目录与单板上运行所需要的目录结构完全一样，然后再打包成镜像（在开发板看来就是SD卡），这个临时的目录结构称为根目录
+</code></pre><h4 id="2-创建rootfs目录根目录根文件系统内的文件全部放到这里"><a href="#2-创建rootfs目录（根目录），根文件系统内的文件全部放到这里" class="headerlink" title="2.    创建rootfs目录（根目录），根文件系统内的文件全部放到这里"></a>2.    创建rootfs目录（根目录），根文件系统内的文件全部放到这里</h4><pre><code>&gt;$ sudo   mkdir   rootfs
+</code></pre><h4 id="3-拷贝busybox命令到根目录下"><a href="#3-拷贝busybox命令到根目录下" class="headerlink" title="3.    拷贝busybox命令到根目录下"></a>3.    拷贝busybox命令到根目录下</h4><pre><code>&gt;$sudo   cp   busybox-1.20.2/_install/*   -r   rootfs/
+</code></pre><h4 id="4-从工具链中拷贝运行库到lib目录下"><a href="#4-从工具链中拷贝运行库到lib目录下" class="headerlink" title="4.    从工具链中拷贝运行库到lib目录下"></a>4.    从工具链中拷贝运行库到lib目录下</h4><pre><code>&gt;$sudo cp -P /usr/arm-linux-gnueabi/lib/* rootfs/lib/
+</code></pre><h4 id="5-创建4个tty端终设备"><a href="#5-创建4个tty端终设备" class="headerlink" title="5.    创建4个tty端终设备"></a>5.    创建4个tty端终设备</h4><pre><code>&gt;$sudo   mknod   rootfs/dev/tty1   c   4   1
+&gt;
+&gt;$sudo   mknod   rootfs/dev/tty2   c   4   2
+&gt;
+&gt;$sudo   mknod   rootfs/dev/tty3   c   4   3
+&gt;
+&gt;$sudo   mknod   rootfs/dev/tty4   c   4   4
+</code></pre><p>###（二）制作根文件系统镜像</p>
+<h4 id="1-生成32m大小的镜像"><a href="#1-生成32M大小的镜像" class="headerlink" title="1. 生成32M大小的镜像"></a>1. 生成32M大小的镜像</h4><pre><code>&gt;$ dd   if=/dev/zero   of=a9rootfs.ext3     bs=1M    count=32
+</code></pre><h4 id="2-格式化成ext3文件系统"><a href="#2-格式化成ext3文件系统" class="headerlink" title="2. 格式化成ext3文件系统"></a>2. 格式化成ext3文件系统</h4><pre><code>&gt;$ mkfs.ext3   a9rootfs.ext3
+</code></pre><h4 id="3-将文件拷贝到镜像中"><a href="#3-将文件拷贝到镜像中" class="headerlink" title="3.  将文件拷贝到镜像中"></a>3.  将文件拷贝到镜像中</h4><pre><code>&gt;$sudo   mkdir   tmpfs
+&gt;
+&gt;$sudo   mount  -t   ext3 a9rootfs.ext3    tmpfs/   -o     loop
+&gt;
+&gt;$cp  rootfs/*    tmpfs/   -r
+&gt;
+&gt;$sudo  umount   tmpfs
+</code></pre><h2 id="六-系统启动运行"><a href="#六、-系统启动运行" class="headerlink" title="六、    系统启动运行"></a>六、    系统启动运行</h2><pre><code>完成上述所有步骤之后，就可以启动qemu来模拟vexpress开发板了，命令参数如下：
 &gt;$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  &quot;root=/dev/mmcblk0   console=ttyAMA0&quot;  -sd a9rootfs.ext3
 
 {% asset_img kernel_start.png [kernel_start]%}
@@ -746,7 +682,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -819,7 +755,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用qemu模拟器搭建arm运行环境"><span class="nav-text">使用qemu模拟器搭建arm运行环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-安装交叉编译工具链下载必备库"><span class="nav-text">一、    安装交叉编译工具链下载必备库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-安装qemu模拟器"><span class="nav-text">二、    安装qemu模拟器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-编译u-boot"><span class="nav-text">三、    编译u-boot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-编译arm架构内核"><span class="nav-text">四、    编译arm架构内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-制作文件系统"><span class="nav-text">五、    制作文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-系统启动运行"><span class="nav-text">六、    系统启动运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-安装交叉编译工具链下载必备库"><span class="nav-text">一、    安装交叉编译工具链下载必备库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建工作目录"><span class="nav-text">1. 创建工作目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装arm交叉编译工具可以通过crosstool-ng开源软件构建本方法直接通过apt下载"><span class="nav-text">2. 安装arm交叉编译工具（可以通过crosstool-ng开源软件构建，本方法直接通过apt下载）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装qemu模拟器"><span class="nav-text">3. 安装qemu模拟器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-安装qemu模拟器"><span class="nav-text">二、    安装qemu模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编译安装"><span class="nav-text">1. 编译安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-将配置生成的中间文件放到build中"><span class="nav-text">2.    将配置生成的中间文件放到build中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装完成查看qemu支持哪些板子"><span class="nav-text">3. 安装完成查看qemu支持哪些板子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-编译u-boot"><span class="nav-text">三、    编译u-boot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载u-boot"><span class="nav-text">1. 下载u-boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解压"><span class="nav-text">2. 解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置-编译"><span class="nav-text">3. 配置、编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-qemu中u-boot启动"><span class="nav-text">4. qemu中u-boot启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-编译arm架构内核"><span class="nav-text">四、    编译arm架构内核</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载内核"><span class="nav-text">1. 下载内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解压"><span class="nav-text">2. 解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-生成vexpress-a9-的config文件-建议先执行make-clean-ampamp-make-mrproper"><span class="nav-text">4. 生成vexpress-a9 的config文件 （建议先执行make clean  && make mrproper）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-执行内核配置"><span class="nav-text">5. 执行内核配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-编译"><span class="nav-text">6. 编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-测试qemu-能否正常启动"><span class="nav-text">7. 测试qemu 能否正常启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-制作文件系统"><span class="nav-text">五、    制作文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一形成根目录结构"><span class="nav-text">（一）形成根目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载busybox"><span class="nav-text">1.    下载busybox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-创建rootfs目录根目录根文件系统内的文件全部放到这里"><span class="nav-text">2.    创建rootfs目录（根目录），根文件系统内的文件全部放到这里</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-拷贝busybox命令到根目录下"><span class="nav-text">3.    拷贝busybox命令到根目录下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-从工具链中拷贝运行库到lib目录下"><span class="nav-text">4.    从工具链中拷贝运行库到lib目录下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-创建4个tty端终设备"><span class="nav-text">5.    创建4个tty端终设备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-生成32m大小的镜像"><span class="nav-text">1. 生成32M大小的镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-格式化成ext3文件系统"><span class="nav-text">2. 格式化成ext3文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-将文件拷贝到镜像中"><span class="nav-text">3.  将文件拷贝到镜像中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-系统启动运行"><span class="nav-text">六、    系统启动运行</span></a></li></ol></div>
             
 
           </div>
