@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+  <url>
+    <loc>https://yanzhirun.github.io/about/index.html</loc>
+    <lastmod>2017-02-15T12:42:55.948Z</lastmod>
+    <data>
+        <display>
+        <title>个人简历</title>
+        <pubTime>2017-02-15T02:17:01.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://yanzhirun.github.io/2017/02/14/2017-2-14/</loc>
+    <lastmod>2017-02-15T09:11:33.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用qemu模拟器搭建arm运行环境</title>
+        <pubTime>2017-02-14T08:41:32.000Z</pubTime>
+        
+        <tag>助教课程</tag>
+         
+         
+           
+             
+              <breadCrumb title="助教课程" url="https://yanzhirun.github.io/categories/%E5%8A%A9%E6%95%99%E8%AF%BE%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yanzhirun.github.io/2017/02/12/2017-2-12/</loc>
+    <lastmod>2017-02-15T07:49:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>搭建小结</title>
+        <pubTime>2017-02-11T16:59:00.000Z</pubTime>
+        
+        <tag>更新小记</tag>
+         
+        <tag>感谢</tag>
+         
+         
+           
+             
+              <breadCrumb title="小结" url="https://yanzhirun.github.io/categories/%E5%B0%8F%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>
