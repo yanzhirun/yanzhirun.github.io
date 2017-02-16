@@ -87,19 +87,20 @@
 
 
 
-<meta name="description" content="研究生阶段工程项目需要使用堆栈式文件系统Wrapfs, 在使用过程中遇到一些问题，后期对其安装配置流程整理如下，由于能力所限，难免存在疏漏，欢迎与本人交流讨论。">
+<meta name="description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu发行版安装wrapfs">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
-<meta property="og:description" content="研究生阶段工程项目需要使用堆栈式文件系统Wrapfs, 在使用过程中遇到一些问题，后期对其安装配置流程整理如下，由于能力所限，难免存在疏漏，欢迎与本人交流讨论。">
+<meta property="og:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/查看模块信息.png">
-<meta property="og:updated_time" content="2017-02-16T06:38:15.000Z">
+<meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/挂载成功.png">
+<meta property="og:updated_time" content="2017-02-16T06:56:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu发行版安装wrapfs">
-<meta name="twitter:description" content="研究生阶段工程项目需要使用堆栈式文件系统Wrapfs, 在使用过程中遇到一些问题，后期对其安装配置流程整理如下，由于能力所限，难免存在疏漏，欢迎与本人交流讨论。">
+<meta name="twitter:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
 <meta name="twitter:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
 
 
@@ -398,7 +399,7 @@
       
 
       
-        <p>研究生阶段工程项目需要使用堆栈式文件系统<a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs</a>, 在使用过程中遇到一些问题，后期对其安装配置流程整理如下，由于能力所限，难免存在疏漏，欢迎与本人交流讨论。<br><a id="more"></a></p>
+        <p>研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 <a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs</a> 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 <code>sa615371@mail.ustc.edu.cn</code> 与本人交流讨论。<br><a id="more"></a></p>
 <p><strong>环境配置</strong></p>
 <ul>
 <li>Virtualbox：5.0.4</li>
@@ -407,38 +408,36 @@
 <li>768M内存</li>
 </ul>
 <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><ol>
-<li>下载源码树<blockquote>
+<li><p>下载源码树</p>
+<blockquote>
 <p>sudo apt-cache search linux-source </p>
 <p>sudo apt-get install linux-source-4.4.0 </p>
 </blockquote>
 </li>
-<li>解压源码<blockquote>
+<li><p>解压源码</p>
+<blockquote>
 <p>sudo  tar -xjf linux-source-4.4.0.tar.bz2 </p>
 </blockquote>
 </li>
-<li>下载wrapfs 的patch</li>
-</ol>
+<li><p>下载wrapfs 的patch</p>
 <p>补丁地址:<a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/</a> </p>
 <p>选取最接近本机内核版本的补丁下载</p>
 <blockquote>
 <p>wget <a href="http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz</a></p>
 </blockquote>
-<ol>
-<li>打补丁<br>解压<br>打补丁到源码树对应位置（注意当前位置）<blockquote>
-<p>sudo patch -p1 &lt; /usr/src/linux-source-4.4.0/wrapfs-v4.4.6-94-gbd18b62.diff</p>
-<img src="/2017/02/16/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png" alt="[打补丁到源码树对应位置]" title="[打补丁到源码树对应位置]">
-</blockquote>
 </li>
-</ol>
-<ol>
-<li>安装必备编译包<blockquote>
+<li><p>打补丁 解压<br>打补丁到源码树对应位置（注意当前路径）</p>
+<blockquote>
+<p>sudo patch -p1 &lt; /usr/src/linux-source-4.4.0/wrapfs-v4.4.6-94-gbd18b62.diff</p>
+</blockquote>
+<img src="/2017/02/16/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png" alt="[打补丁到源码树对应位置]" title="[打补丁到源码树对应位置]">
+</li>
+<li><p>安装必备编译包</p>
+<blockquote>
 <p>sudo apt-get install build-essential kernel-package libncurses5-dev</p>
 </blockquote>
 </li>
-</ol>
-<ol>
-<li>编译模块</li>
-</ol>
+<li><p>编译模块</p>
 <ul>
 <li>拷贝当前系统的Module.symvers到wrapfs源码处</li>
 </ul>
@@ -460,10 +459,12 @@
 <li><p>挂载成功</p>
 <blockquote>
 <p>sudo insmod wrapfs.ko</p>
-<p>｛% asset_img 挂载成功.png [挂载成功]%｝</p>
 </blockquote>
 </li>
 </ul>
+<img src="/2017/02/16/Ubuntu发行版安装wrapfs/挂载成功.png" alt="[挂载成功]" title="[挂载成功]">
+</li>
+</ol>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs: A Stackable Passthru File System</a></p>
 <p><a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">patch下载地址</a></p>
 <p><a href="ftp://ftp.filesystems.org/pub/fistgen/linux-patches/2.4/README" target="_blank" rel="external">更新源码树</a></p>
