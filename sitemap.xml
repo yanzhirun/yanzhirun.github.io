@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yanzhirun.github.io/about/index.html</loc>
+    
+    <lastmod>2017-03-01T02:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yanzhirun.github.io/2017/02/16/Ubuntu%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85wrapfs/</loc>
     
     <lastmod>2017-02-16T06:56:18.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://yanzhirun.github.io/google4ff5d1a6e5b43d8a.html</loc>
     
     <lastmod>2017-02-16T05:05:26.931Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yanzhirun.github.io/about/index.html</loc>
-    
-    <lastmod>2017-02-15T12:42:55.948Z</lastmod>
     
   </url>
   
