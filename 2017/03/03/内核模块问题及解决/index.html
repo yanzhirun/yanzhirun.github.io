@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NexT, Blog, yanzhirun, 颜智润" />
+  <meta name="keywords" content="随手记录,内核," />
 
 
 
@@ -87,22 +87,16 @@
 
 
 
-<meta name="description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。
-内核文件读写内核空间无法直接使用系统调用read、write函数12阅读Linux内核源码，可以知道陷入内核执行的是实际执行的是sys_read和sys_write这两个函数。但是这两个函数没有使用EXPORT_SYMBOL导出，也就是说其他模块不能使用。
-使用vfs_read vfs_write12在vfs_re">
+<meta name="description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内核模块问题及解决">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/03/03/内核模块问题及解决/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
-<meta property="og:description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。
-内核文件读写内核空间无法直接使用系统调用read、write函数12阅读Linux内核源码，可以知道陷入内核执行的是实际执行的是sys_read和sys_write这两个函数。但是这两个函数没有使用EXPORT_SYMBOL导出，也就是说其他模块不能使用。
-使用vfs_read vfs_write12在vfs_re">
-<meta property="og:updated_time" content="2017-03-03T12:17:19.888Z">
+<meta property="og:description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。">
+<meta property="og:updated_time" content="2017-03-03T12:21:37.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内核模块问题及解决">
-<meta name="twitter:description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。
-内核文件读写内核空间无法直接使用系统调用read、write函数12阅读Linux内核源码，可以知道陷入内核执行的是实际执行的是sys_read和sys_write这两个函数。但是这两个函数没有使用EXPORT_SYMBOL导出，也就是说其他模块不能使用。
-使用vfs_read vfs_write12在vfs_re">
+<meta name="twitter:description" content="针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。">
 
 
 
@@ -332,6 +326,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/小结/" itemprop="url" rel="index">
+                    <span itemprop="name">小结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -379,6 +395,7 @@
 
       
         <p>针对近期遇到的需求，记录解决方案以及对问题的分析，根据深入学习不断对本文补充完善。</p>
+<a id="more"></a>
 <h2 id="内核文件读写"><a href="#内核文件读写" class="headerlink" title="内核文件读写"></a>内核文件读写</h2><p>内核空间无法直接使用系统调用read、write函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">阅读Linux内核源码，可以知道陷入内核执行的是实际执行的是sys_read和sys_write这两个函数。</div><div class="line">但是这两个函数没有使用EXPORT_SYMBOL导出，也就是说其他模块不能使用。</div></pre></td></tr></table></figure></p>
 <p>使用<code>vfs_read</code> <code>vfs_write</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在vfs_read和vfs_write函数中，其参数buf指向的用户空间的内存地址，如果我们直接使用内核空间的指针，则会返回-EFALUT。这是因为使用的缓冲区超过了用户空间的地址范围。</div><div class="line">一般系统调用会要求你使用的缓冲区不能在内核区。这个可以用set_fs()、get_fs()来解决。</div></pre></td></tr></table></figure></p>
 <pre><code>mm_segment_t fs = get_fs();
@@ -442,6 +459,14 @@ set_fs(fs);
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/随手记录/" rel="tag"># 随手记录</a>
+          
+            <a href="/tags/内核/" rel="tag"># 内核</a>
+          
+        </div>
       
 
       
@@ -552,7 +577,7 @@ set_fs(fs);
           
             <div class="site-state-item site-state-tags">
               <a href="/tags/">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
