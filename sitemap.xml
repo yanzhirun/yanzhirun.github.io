@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yanzhirun.github.io/2017/02/16/Ubuntu%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85wrapfs/</loc>
+    
+    <lastmod>2017-03-09T04:03:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yanzhirun.github.io/2017/02/16/hexo%E4%BD%BF%E7%94%A8%E4%B8%8E%E8%B8%A9%E5%9D%91/</loc>
     
     <lastmod>2017-03-03T12:21:38.513Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://yanzhirun.github.io/about/index.html</loc>
     
     <lastmod>2017-03-03T12:18:53.467Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yanzhirun.github.io/2017/02/16/Ubuntu%E5%8F%91%E8%A1%8C%E7%89%88%E5%AE%89%E8%A3%85wrapfs/</loc>
-    
-    <lastmod>2017-02-16T06:56:18.000Z</lastmod>
     
   </url>
   

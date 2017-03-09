@@ -94,10 +94,11 @@
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
+<meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/修改vermagic版本号.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/查看模块信息.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/挂载成功.png">
-<meta property="og:updated_time" content="2017-02-16T06:56:18.000Z">
+<meta property="og:updated_time" content="2017-03-09T04:03:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu发行版安装wrapfs">
 <meta name="twitter:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
@@ -437,6 +438,9 @@
 <p>sudo apt-get install build-essential kernel-package libncurses5-dev</p>
 </blockquote>
 </li>
+<li><p>修改vermagic版本号<br>打开源码根目录的Makefile ，修改 <code>EXTRAVERSION</code> 项。<br>注意：要保持和当前系统可加载模块相同的vermagic ，如下图</p>
+<img src="/2017/02/16/Ubuntu发行版安装wrapfs/修改vermagic版本号.png" alt="[修改vermagic版本号]" title="[修改vermagic版本号]">
+</li>
 <li><p>编译模块</p>
 <ul>
 <li>拷贝当前系统的Module.symvers到wrapfs源码处</li>
@@ -446,6 +450,10 @@
 <li><p>先在该源码树根目录执行<code>make</code> 生成必要的头文件（生成/include/generate/ 等包含版本信息的头文件），然后<code>Ctrl</code>+<code>c</code>强制停止。编译<code>wrapfs</code>模块 </p>
 <blockquote>
 <p>make -C /usr/src/linux-source-4.4.0/linux-source-4.4.0/ M=$PWD modules</p>
+</blockquote>
+<p>可能需要添加<code>CONFIG_WRAP_FS=m</code>选项</p>
+<blockquote>
+<p>sudo make CONFIG_WRAP_FS=m  –C /usr/src/linux-4.2.5/  M=$PWD modules</p>
 </blockquote>
 </li>
 <li><p>查看模块信息和当前内核版本匹配</p>
