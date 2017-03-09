@@ -98,7 +98,7 @@
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/查看模块信息.png">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/02/16/Ubuntu发行版安装wrapfs/挂载成功.png">
-<meta property="og:updated_time" content="2017-03-09T04:03:21.000Z">
+<meta property="og:updated_time" content="2017-03-09T05:03:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu发行版安装wrapfs">
 <meta name="twitter:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
@@ -439,7 +439,12 @@
 </blockquote>
 </li>
 <li><p>修改vermagic版本号<br>打开源码根目录的Makefile ，修改 <code>EXTRAVERSION</code> 项。<br>注意：要保持和当前系统可加载模块相同的vermagic ，如下图</p>
-<img src="/2017/02/16/Ubuntu发行版安装wrapfs/修改vermagic版本号.png" alt="[修改vermagic版本号]" title="[修改vermagic版本号]">
+<img src="/2017/02/16/Ubuntu发行版安装wrapfs/修改vermagic版本号.png" alt="[修改vermagic版本号]" title="[修改vermagic版本号]"></li>
+<li><p>拷贝  Module.symvers Module.symvers 到源码处</p>
+<blockquote>
+<p>sudo cp /usr/src/linux-headers-4.4.0-36-generic/Module.symvers  ./<br> sudo cp /lib/modules/4.4.0-36-generic/modules.symbols  ./</p>
+</blockquote>
+<p> 可解决<code>insmod: ERROR: could not insert module wrapfs.ko: Invalid module format</code> 问题</p>
 </li>
 <li><p>编译模块</p>
 <ul>
@@ -473,9 +478,12 @@
 <img src="/2017/02/16/Ubuntu发行版安装wrapfs/挂载成功.png" alt="[挂载成功]" title="[挂载成功]">
 </li>
 </ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>问题：</strong>    无法卸载模块<br><strong>场景复现：</strong> 成功<code>insmod</code> wrapfs 模块 重新编译新wrapfs模块，未卸载之前wrapfs模块，再次<code>insmod</code> wrapfs<br><strong>解决：</strong> 重启，未找到简单不重启解决方案。</p>
+<p>6和7 可以解决生成 .ko 文件却无法挂载的问题。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs: A Stackable Passthru File System</a></p>
 <p><a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">patch下载地址</a></p>
 <p><a href="ftp://ftp.filesystems.org/pub/fistgen/linux-patches/2.4/README" target="_blank" rel="external">更新源码树</a></p>
+<p><a href="http://stackoverflow.com/questions/2720177/module-layout-version-incompatibility" target="_blank" rel="external">module_layout version incompatibility</a></p>
 
       
     </div>
@@ -702,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
