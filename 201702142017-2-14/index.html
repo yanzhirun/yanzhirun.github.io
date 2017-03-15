@@ -94,16 +94,16 @@ Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用qemu模拟器搭建arm运行环境">
-<meta property="og:url" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/index.html">
+<meta property="og:url" content="https://yanzhirun.github.io/201702142017-2-14/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="环境
 
 Vmware 12.5.1
 Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_panic.png">
-<meta property="og:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_start.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702142017-2-14/kernel_menuconfig.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702142017-2-14/kernel_panic.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702142017-2-14/kernel_start.png">
 <meta property="og:updated_time" content="2017-02-15T09:11:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用qemu模拟器搭建arm运行环境">
@@ -112,7 +112,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 Vmware 12.5.1
 Ubuntu 16.04 64位
 Linux 3.16.1 （高版本无法启动qemu）">
-<meta name="twitter:image" content="https://yanzhirun.github.io/2017/02/14/2017-2-14/kernel_menuconfig.png">
+<meta name="twitter:image" content="https://yanzhirun.github.io/201702142017-2-14/kernel_menuconfig.png">
 
 
 
@@ -140,7 +140,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 
 
 
-  <link rel="canonical" href="https://yanzhirun.github.io/2017/02/14/2017-2-14/"/>
+  <link rel="canonical" href="https://yanzhirun.github.io/201702142017-2-14/"/>
 
 
 
@@ -292,7 +292,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/2017/02/14/2017-2-14/">
+  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/201702142017-2-14/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="YanZhirun">
@@ -372,8 +372,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/14/2017-2-14/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/2017-2-14/" itemprop="commentCount"></span>
+                <a href="/201702142017-2-14/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="201702142017-2-14/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -381,7 +381,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 
           
           
-             <span id="/2017/02/14/2017-2-14/" class="leancloud_visitors" data-flag-title="使用qemu模拟器搭建arm运行环境">
+             <span id="/201702142017-2-14/" class="leancloud_visitors" data-flag-title="使用qemu模拟器搭建arm运行环境">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -528,7 +528,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <p>$ make CROSS_COMPILE=arm-linux-gnueabi- ARCH=arm O=./out_vexpress_3_16 menuconfig</p>
 </blockquote>
 <p>选项位于：<br>    System Type  —&gt;[] Enable the L2x0 outer cache controller</p>
-<img src="/2017/02/14/2017-2-14/kernel_menuconfig.png" alt="[kernel_menuconfig]" title="[kernel_menuconfig]">
+<img src="/201702142017-2-14/kernel_menuconfig.png" alt="[kernel_menuconfig]" title="[kernel_menuconfig]">
 <p><strong>取消该项</strong>  <strong>其他保持默认不变</strong></p>
 <h3 id="6-编译"><a href="#6-编译" class="headerlink" title="6. 编译"></a>6. 编译</h3><blockquote>
 <p>$ make   CROSS_COMPILE=arm-linux-gnueabi-   ARCH=arm  O=./out_vexpress_3_16 zImage -j2</p>
@@ -539,7 +539,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <p>$ cd   ~/qemu_linux</p>
 <p>$ qemu-system-arm -M vexpress-a9 -m 512M -kernel /home/ivan/kernel_git/linux/arch/arm/boot/zImage -nographic -append “console=ttyAMA0”</p>
 </blockquote>
-<img src="/2017/02/14/2017-2-14/kernel_panic.png" alt="[kernel_panic]" title="[kernel_panic]">
+<img src="/201702142017-2-14/kernel_panic.png" alt="[kernel_panic]" title="[kernel_panic]">
 <p>出现kernel panic<br>问题在于需要挂载文件系统</p>
 <h2 id="五-制作文件系统"><a href="#五、-制作文件系统" class="headerlink" title="五、    制作文件系统"></a>五、    制作文件系统</h2><h3 id="一形成根目录结构"><a href="#（一）形成根目录结构" class="headerlink" title="（一）形成根目录结构"></a>（一）形成根目录结构</h3><h4 id="1-下载busybox"><a href="#1-下载busybox" class="headerlink" title="1.    下载busybox"></a>1.    下载busybox</h4><blockquote>
 <p>$ wget   <a href="https://busybox.net/downloads/busybox-1.20.2.tar.bz2" target="_blank" rel="external">https://busybox.net/downloads/busybox-1.20.2.tar.bz2</a> </p>
@@ -578,7 +578,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 <blockquote>
 <p>$ qemu-system-arm  -M  vexpress-a9  -m  512M  -kernel /the/path/to/your/kernel/dir/arch/arm/boot/zImage  -nographic  -append  “root=/dev/mmcblk0   console=ttyAMA0”  -sd a9rootfs.ext3</p>
 </blockquote>
-<img src="/2017/02/14/2017-2-14/kernel_start.png" alt="[kernel_start]" title="[kernel_start]">
+<img src="/201702142017-2-14/kernel_start.png" alt="[kernel_start]" title="[kernel_start]">
 
       
     </div>
@@ -615,7 +615,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/12/2017-2-12/" rel="next" title="搭建小结">
+              <a href="/201702122017-2-12/" rel="next" title="搭建小结">
                 <i class="fa fa-chevron-left"></i> 搭建小结
               </a>
             
@@ -625,7 +625,7 @@ Linux 3.16.1 （高版本无法启动qemu）">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/16/hexo使用与踩坑/" rel="prev" title="hexo使用与踩坑">
+              <a href="/20170216hexo使用与踩坑/" rel="prev" title="hexo使用与踩坑">
                 hexo使用与踩坑 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -653,8 +653,8 @@ Linux 3.16.1 （高版本无法启动qemu）">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/14/2017-2-14/"
-           data-title="使用qemu模拟器搭建arm运行环境" data-url="https://yanzhirun.github.io/2017/02/14/2017-2-14/">
+      <div class="ds-thread" data-thread-key="201702142017-2-14/"
+           data-title="使用qemu模拟器搭建arm运行环境" data-url="https://yanzhirun.github.io/201702142017-2-14/">
       </div>
     
   </div>
