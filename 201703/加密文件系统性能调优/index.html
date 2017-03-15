@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Wrapfs,Linux,内核模块," />
+  <meta name="keywords" content="加密文件系统,内核,wrapfs," />
 
 
 
@@ -87,22 +87,16 @@
 
 
 
-<meta name="description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
+<meta name="description" content="重新理清加密文件系统的思路，在一定范围内进行调优、测试，在调试过程中暴露出许多bug。本文记录发现问题、解决问题的思路以及对问题的简要分析，随着工作进展不断更新。目前仍有大量问题亟待解决。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu发行版安装wrapfs">
-<meta property="og:url" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/index.html">
+<meta property="og:title" content="加密文件系统性能调优">
+<meta property="og:url" content="https://yanzhirun.github.io/201703/加密文件系统性能调优/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
-<meta property="og:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
-<meta property="og:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
-<meta property="og:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/修改vermagic版本号.png">
-<meta property="og:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png">
-<meta property="og:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/查看模块信息.png">
-<meta property="og:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/挂载成功.png">
-<meta property="og:updated_time" content="2017-03-09T05:03:35.000Z">
+<meta property="og:description" content="重新理清加密文件系统的思路，在一定范围内进行调优、测试，在调试过程中暴露出许多bug。本文记录发现问题、解决问题的思路以及对问题的简要分析，随着工作进展不断更新。目前仍有大量问题亟待解决。">
+<meta property="og:updated_time" content="2017-03-12T13:33:58.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu发行版安装wrapfs">
-<meta name="twitter:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
-<meta name="twitter:image" content="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
+<meta name="twitter:title" content="加密文件系统性能调优">
+<meta name="twitter:description" content="重新理清加密文件系统的思路，在一定范围内进行调优、测试，在调试过程中暴露出许多bug。本文记录发现问题、解决问题的思路以及对问题的简要分析，随着工作进展不断更新。目前仍有大量问题亟待解决。">
 
 
 
@@ -130,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/"/>
+  <link rel="canonical" href="https://yanzhirun.github.io/201703/加密文件系统性能调优/"/>
 
 
 
 
 
-  <title> Ubuntu发行版安装wrapfs | YanZhirun's Blog </title>
+  <title> 加密文件系统性能调优 | YanZhirun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/">
+  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/201703/加密文件系统性能调优/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="YanZhirun">
@@ -306,7 +300,7 @@
             
             
               
-                Ubuntu发行版安装wrapfs
+                加密文件系统性能调优
               
             
           </h1>
@@ -321,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T13:51:16+08:00">
-                2017-02-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-11T14:11:35+08:00">
+                2017-03-11
               </time>
             
 
@@ -344,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程项目/" itemprop="url" rel="index">
-                    <span itemprop="name">工程项目</span>
+                  <a href="/categories/小结/" itemprop="url" rel="index">
+                    <span itemprop="name">小结</span>
                   </a>
                 </span>
 
@@ -362,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/20170216Ubuntu发行版安装wrapfs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="20170216Ubuntu发行版安装wrapfs/" itemprop="commentCount"></span>
+                <a href="/201703/加密文件系统性能调优/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="201703/加密文件系统性能调优/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,7 +365,7 @@
 
           
           
-             <span id="/20170216Ubuntu发行版安装wrapfs/" class="leancloud_visitors" data-flag-title="Ubuntu发行版安装wrapfs">
+             <span id="/201703/加密文件系统性能调优/" class="leancloud_visitors" data-flag-title="加密文件系统性能调优">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -400,90 +394,38 @@
       
 
       
-        <p>研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 <a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs</a> 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 <code>sa615371@mail.ustc.edu.cn</code> 与本人交流讨论。<br><a id="more"></a></p>
-<p><strong>环境配置</strong></p>
-<ul>
-<li>Virtualbox：5.0.4</li>
-<li>Ubuntu16.04.1 server32位发行版</li>
-<li>内核：4.4.0-36-generic</li>
-<li>768M内存</li>
-</ul>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><ol>
-<li><p>下载源码树</p>
-<blockquote>
-<p>sudo apt-cache search linux-source </p>
-<p>sudo apt-get install linux-source-4.4.0 </p>
-</blockquote>
-</li>
-<li><p>解压源码</p>
-<blockquote>
-<p>sudo  tar -xjf linux-source-4.4.0.tar.bz2 </p>
-</blockquote>
-</li>
-<li><p>下载wrapfs 的patch</p>
-<p>补丁地址:<a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/</a> </p>
-<p>选取最接近本机内核版本的补丁下载</p>
-<blockquote>
-<p>wget <a href="http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz</a></p>
-</blockquote>
-</li>
-<li><p>打补丁 解压<br>打补丁到源码树对应位置（注意当前路径）</p>
-<blockquote>
-<p>sudo patch -p1 &lt; /usr/src/linux-source-4.4.0/wrapfs-v4.4.6-94-gbd18b62.diff</p>
-</blockquote>
-<img src="/20170216Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png" alt="[打补丁到源码树对应位置]" title="[打补丁到源码树对应位置]">
-</li>
-<li><p>安装必备编译包</p>
-<blockquote>
-<p>sudo apt-get install build-essential kernel-package libncurses5-dev</p>
-</blockquote>
-</li>
-<li><p>修改vermagic版本号<br>打开源码根目录的Makefile ，修改 <code>EXTRAVERSION</code> 项。<br>注意：要保持和当前系统可加载模块相同的vermagic ，如下图</p>
-<img src="/20170216Ubuntu发行版安装wrapfs/修改vermagic版本号.png" alt="[修改vermagic版本号]" title="[修改vermagic版本号]"></li>
-<li><p>拷贝  Module.symvers Module.symvers 到源码处</p>
-<blockquote>
-<p>sudo cp /usr/src/linux-headers-4.4.0-36-generic/Module.symvers  ./<br> sudo cp /lib/modules/4.4.0-36-generic/modules.symbols  ./</p>
-</blockquote>
-<p> 可解决<code>insmod: ERROR: could not insert module wrapfs.ko: Invalid module format</code> 问题</p>
-</li>
-<li><p>编译模块</p>
-<ul>
-<li>拷贝当前系统的Module.symvers到wrapfs源码处</li>
-</ul>
-<img src="/20170216Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png" alt="[拷贝当前系统的Module.symvers]" title="[拷贝当前系统的Module.symvers]">
-<ul>
-<li><p>先在该源码树根目录执行<code>make</code> 生成必要的头文件（生成/include/generate/ 等包含版本信息的头文件），然后<code>Ctrl</code>+<code>c</code>强制停止。编译<code>wrapfs</code>模块 </p>
-<blockquote>
-<p>make -C /usr/src/linux-source-4.4.0/linux-source-4.4.0/ M=$PWD modules</p>
-</blockquote>
-<p>可能需要添加<code>CONFIG_WRAP_FS=m</code>选项</p>
-<blockquote>
-<p>sudo make CONFIG_WRAP_FS=m  –C /usr/src/linux-4.2.5/  M=$PWD modules</p>
-</blockquote>
-</li>
-<li><p>查看模块信息和当前内核版本匹配</p>
-<blockquote>
-<p>modinfo ./wrapfs.ko</p>
-</blockquote>
-</li>
-</ul>
-<img src="/20170216Ubuntu发行版安装wrapfs/查看模块信息.png" alt="[查看模块信息与当前内核版本匹配]" title="[查看模块信息与当前内核版本匹配]">
-<ul>
-<li><p>挂载成功</p>
-<blockquote>
-<p>sudo insmod wrapfs.ko</p>
-</blockquote>
-</li>
-</ul>
-<img src="/20170216Ubuntu发行版安装wrapfs/挂载成功.png" alt="[挂载成功]" title="[挂载成功]">
-</li>
+        <p>重新理清加密文件系统的思路，在一定范围内进行调优、测试，在调试过程中暴露出许多bug。本文记录发现问题、解决问题的思路以及对问题的简要分析，随着工作进展不断更新。目前仍有大量问题亟待解决。</p>
+<a id="more"></a>
+<h1 id="工作清单"><a href="#工作清单" class="headerlink" title="工作清单"></a>工作清单</h1><ol>
+<li>不同文件类型测试</li>
+<li>读写性能测试</li>
+<li>优化</li>
 </ol>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>问题：</strong>    无法卸载模块<br><strong>场景复现：</strong> 成功<code>insmod</code> wrapfs 模块 重新编译新wrapfs模块，未卸载之前wrapfs模块，再次<code>insmod</code> wrapfs<br><strong>解决：</strong> 重启，未找到简单不重启解决方案。</p>
-<p>6和7 可以解决生成 .ko 文件却无法挂载的问题。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs: A Stackable Passthru File System</a></p>
-<p><a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">patch下载地址</a></p>
-<p><a href="ftp://ftp.filesystems.org/pub/fistgen/linux-patches/2.4/README" target="_blank" rel="external">更新源码树</a></p>
-<p><a href="http://stackoverflow.com/questions/2720177/module-layout-version-incompatibility" target="_blank" rel="external">module_layout version incompatibility</a></p>
+<h1 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h1><p><strong>问题：</strong>修改文本后，前部分正确解密，后部分乱码<br><strong>场景复现：</strong>    复制文本到加密目录，使用gedit 或者 vim 打开 开头部分添加若干行内容，保存后再次打开。<br><strong>定位问题：</strong>读操作每次读4096，为8整数倍，写操作会在不足8字节处开始<br><strong>修改方案：</strong>写操作先判断应用层传递count大小是否为8整数倍，调整后调用<code>vfs_write</code>，多出8字节部分不处理。</p>
+<hr>
+<p><strong>问题：</strong>音频视频PDF无法加解密<br><strong>分析：</strong>加密算法问题，考虑更换加密算法</p>
+<hr>
+<p><strong>问题：</strong>无法完美还原明文。<br><strong>场景复现：</strong>使用gedit打开文件，点击<code>save</code>，再次打开。<br>无法正确解密文件。前部分正确。中间一部分错误一部分正确。<br><strong>过程：</strong>使用桌面程序打开加密文本进行修改，保存过程出现卡顿，再次打开无法正常显示。<br><strong>分析：</strong>初步怀疑是脏页读写机制导致文件内容错乱。<br>使用<code>save as</code> 到另外文件夹，可以将明文复制过去，判断应用程序使用应用程序缓存直接复制，而非调用底层页缓存等。排除底层问题。<br>定位问题在写操作。内核打印每次写操作上层请求大小<code>count</code>成功读写返回大小<code>err</code> ，发现每次读偏移量为相同值 8192 ，<code>save</code> 和<code>save as</code>时写入大小出现若干为 8191 。该处导致保存后再次读出现问题。</p>
+<hr>
+<p><strong>问题：</strong>使用vi打开创建修改文本正确，换用gedit打开保存后，乱码</p>
+<p><strong>解决思路：</strong>调整接受到应用层写请求<code>count</code> 大小，内层添加写大小调整，确保每次写操作执行量为 <code>8*n</code> </p>
+<hr>
+<p><strong>问题：</strong>使用gedit修改保存后57328字节处3个字符错误<br><strong>解决方案：</strong>调整文件偏移量<code>*ppos</code> 从8整数倍开始写</p>
+<p><strong>问题：</strong>使用vi打开修改正确，换用gedit打开保存后全文错误。<br><strong>分析：</strong>调用堆栈式文件系统写操作，在保存操作的时候并不是全文顺序写入</p>
+<h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>选择恰当的工具测试文件系统的性能，不使用文件系统模版，使用空白文件系统模版，使用添加加解密模块的文件系统分别测试，找出性能瓶颈，以及最大可优化点，对其进行优化。</p>
+<h2 id="工具选择"><a href="#工具选择" class="headerlink" title="工具选择"></a>工具选择</h2><p><a href="http://www.iozone.org/" target="_blank" rel="external">IOzone Filesystem Benchmark</a>—a filesystem benchmark tool<br><a href="https://github.com/llnl/fdtree" target="_blank" rel="external">fdtree</a>—The fdtree software is used for testing the metadata performance of a file system</p>
+<h2 id="测试读写性能"><a href="#测试读写性能" class="headerlink" title="测试读写性能"></a>测试读写性能</h2><p>安装iozone<br>使用<br><code>iozone -i 0 -i 1 -f /home/yzr/Desktop/cont/iozone -Rab /home/yzr/Desktop/memcpy.xls -n 10k -g 1g -y 2k -q 8M</code><br>生成excel放到官网提供的模版里处理数据得到炫酷的3D图像。</p>
+<p>-i 0 write/rewrite -i 1 read/reread 仅测试读写<br>块最小值为2k 块最大值为8M</p>
+<p>问题：<br>测试wrapfs带有加解密模块的wrapfs文件系统，以reclen(record length I/O请求的大小)为8192读写时会killed</p>
+<p>临时方案：<br>最小块为8k 最大块为4M 文件大小从10K到800M<br>先分析数据，之后研究原因<br>对具有加密模块的文件系统测试出现问题！rewrite 后无法读<br>单独测试写性能</p>
+<p>分析：</p>
+<h2 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h2><p>测试前要先清空缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sync;</div><div class="line">echo 3 &gt; /proc/sys/vm/drop_caches</div><div class="line">sync;</div><div class="line">echo 0 &gt; /proc/sys/vm/drop_caches</div></pre></td></tr></table></figure></p>
+<h3 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h3><ol>
+<li>分析原因</li>
+<li>列举可能影响性能的调优参数</li>
+<li>定位性能瓶颈</li>
+</ol>
+<h1 id="扩展功能点"><a href="#扩展功能点" class="headerlink" title="扩展功能点"></a>扩展功能点</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://developer.apple.com/library/prerelease/content/documentation/FileManagement/Conceptual/APFS_Guide/Introduction/Introduction.html" target="_blank" rel="external">Apple File System Guide</a><br><a href="Apple新发布的APFS文件系统对用户意味着什么">Apple新发布的APFS文件系统对用户意味着什么</a></p>
 
       
     </div>
@@ -507,11 +449,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Wrapfs/" rel="tag"># Wrapfs</a>
+            <a href="/tags/加密文件系统/" rel="tag"># 加密文件系统</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/内核/" rel="tag"># 内核</a>
           
-            <a href="/tags/内核模块/" rel="tag"># 内核模块</a>
+            <a href="/tags/wrapfs/" rel="tag"># wrapfs</a>
           
         </div>
       
@@ -524,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/20170216hexo使用与踩坑/" rel="next" title="hexo使用与踩坑">
-                <i class="fa fa-chevron-left"></i> hexo使用与踩坑
+              <a href="/201702/Ubuntu发行版安装wrapfs/" rel="next" title="Ubuntu发行版安装wrapfs">
+                <i class="fa fa-chevron-left"></i> Ubuntu发行版安装wrapfs
               </a>
             
           </div>
@@ -533,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/20170311加密文件系统性能调优/" rel="prev" title="加密文件系统性能调优">
-                加密文件系统性能调优 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,8 +500,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="20170216Ubuntu发行版安装wrapfs/"
-           data-title="Ubuntu发行版安装wrapfs" data-url="https://yanzhirun.github.io/20170216Ubuntu发行版安装wrapfs/">
+      <div class="ds-thread" data-thread-key="201703/加密文件系统性能调优/"
+           data-title="加密文件系统性能调优" data-url="https://yanzhirun.github.io/201703/加密文件系统性能调优/">
       </div>
     
   </div>
@@ -710,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工作清单"><span class="nav-text">工作清单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题汇总"><span class="nav-text">问题汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能测试"><span class="nav-text">性能测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具选择"><span class="nav-text">工具选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试读写性能"><span class="nav-text">测试读写性能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能调优"><span class="nav-text">性能调优</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法总结"><span class="nav-text">方法总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展功能点"><span class="nav-text">扩展功能点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>

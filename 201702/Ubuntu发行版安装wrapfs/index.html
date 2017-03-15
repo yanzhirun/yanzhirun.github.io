@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="随手记录,hexo,踩坑," />
+  <meta name="keywords" content="Wrapfs,Linux,内核模块," />
 
 
 
@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
+<meta name="description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo使用与踩坑">
-<meta property="og:url" content="https://yanzhirun.github.io/20170216hexo使用与踩坑/index.html">
+<meta property="og:title" content="Ubuntu发行版安装wrapfs">
+<meta property="og:url" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
-<meta property="og:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
-<meta property="og:updated_time" content="2017-03-11T07:18:55.000Z">
+<meta property="og:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
+<meta property="og:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/修改vermagic版本号.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/查看模块信息.png">
+<meta property="og:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/挂载成功.png">
+<meta property="og:updated_time" content="2017-03-09T05:03:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo使用与踩坑">
-<meta name="twitter:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
+<meta name="twitter:title" content="Ubuntu发行版安装wrapfs">
+<meta name="twitter:description" content="研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 Wrapfs 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 sa615371@mail.ustc.edu.cn 与本人交流讨论。">
+<meta name="twitter:image" content="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://yanzhirun.github.io/20170216hexo使用与踩坑/"/>
+  <link rel="canonical" href="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/"/>
 
 
 
 
 
-  <title> hexo使用与踩坑 | YanZhirun's Blog </title>
+  <title> Ubuntu发行版安装wrapfs | YanZhirun's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/20170216hexo使用与踩坑/">
+  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="YanZhirun">
@@ -300,7 +306,7 @@
             
             
               
-                hexo使用与踩坑
+                Ubuntu发行版安装wrapfs
               
             
           </h1>
@@ -315,7 +321,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T13:25:16+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T13:51:16+08:00">
                 2017-02-16
               </time>
             
@@ -338,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/小结/" itemprop="url" rel="index">
-                    <span itemprop="name">小结</span>
+                  <a href="/categories/工程项目/" itemprop="url" rel="index">
+                    <span itemprop="name">工程项目</span>
                   </a>
                 </span>
 
@@ -356,8 +362,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/20170216hexo使用与踩坑/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="20170216hexo使用与踩坑/" itemprop="commentCount"></span>
+                <a href="/201702/Ubuntu发行版安装wrapfs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="201702/Ubuntu发行版安装wrapfs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,7 +371,7 @@
 
           
           
-             <span id="/20170216hexo使用与踩坑/" class="leancloud_visitors" data-flag-title="hexo使用与踩坑">
+             <span id="/201702/Ubuntu发行版安装wrapfs/" class="leancloud_visitors" data-flag-title="Ubuntu发行版安装wrapfs">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,71 +400,90 @@
       
 
       
-        <p>根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。</p>
-<a id="more"></a>
-<h2 id="测试和发布"><a href="#测试和发布" class="headerlink" title="测试和发布"></a>测试和发布</h2><ul>
-<li><p>新建文章</p>
+        <p>研究生期间研究加密文件系统相关内容，采用堆栈式文件系统 <a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs</a> 作为学习入口, 在使用过程中遇到一些问题，后期对其安装、配置流程进行整理，由于能力所限，难免存在疏漏，如有建议欢迎给我留言，或者通过 <code>sa615371@mail.ustc.edu.cn</code> 与本人交流讨论。<br><a id="more"></a></p>
+<p><strong>环境配置</strong></p>
+<ul>
+<li>Virtualbox：5.0.4</li>
+<li>Ubuntu16.04.1 server32位发行版</li>
+<li>内核：4.4.0-36-generic</li>
+<li>768M内存</li>
+</ul>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><ol>
+<li><p>下载源码树</p>
 <blockquote>
-<p>hexo n [文章名称]</p>
+<p>sudo apt-cache search linux-source </p>
+<p>sudo apt-get install linux-source-4.4.0 </p>
 </blockquote>
 </li>
-<li><p>清除缓存(db.json)和已生成静态文件(public)：</p>
+<li><p>解压源码</p>
 <blockquote>
-<p>hexo clean </p>
+<p>sudo  tar -xjf linux-source-4.4.0.tar.bz2 </p>
 </blockquote>
 </li>
-<li><p>生成测试（ip:4000测试端口默认4000）</p>
+<li><p>下载wrapfs 的patch</p>
+<p>补丁地址:<a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/</a> </p>
+<p>选取最接近本机内核版本的补丁下载</p>
 <blockquote>
-<p>hexo s -g</p>
+<p>wget <a href="http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz" target="_blank" rel="external">http://download.filesystems.org/wrapfs/patches/wrapfs-v4.4.6-94-gbd18b62.diff.gz</a></p>
 </blockquote>
 </li>
-<li><p>生成发布</p>
+<li><p>打补丁 解压<br>打补丁到源码树对应位置（注意当前路径）</p>
 <blockquote>
-<p>hexo d -g</p>
+<p>sudo patch -p1 &lt; /usr/src/linux-source-4.4.0/wrapfs-v4.4.6-94-gbd18b62.diff</p>
+</blockquote>
+<img src="/201702/Ubuntu发行版安装wrapfs/打补丁到源码树对应位置.png" alt="[打补丁到源码树对应位置]" title="[打补丁到源码树对应位置]">
+</li>
+<li><p>安装必备编译包</p>
+<blockquote>
+<p>sudo apt-get install build-essential kernel-package libncurses5-dev</p>
+</blockquote>
+</li>
+<li><p>修改vermagic版本号<br>打开源码根目录的Makefile ，修改 <code>EXTRAVERSION</code> 项。<br>注意：要保持和当前系统可加载模块相同的vermagic ，如下图</p>
+<img src="/201702/Ubuntu发行版安装wrapfs/修改vermagic版本号.png" alt="[修改vermagic版本号]" title="[修改vermagic版本号]"></li>
+<li><p>拷贝  Module.symvers Module.symvers 到源码处</p>
+<blockquote>
+<p>sudo cp /usr/src/linux-headers-4.4.0-36-generic/Module.symvers  ./<br> sudo cp /lib/modules/4.4.0-36-generic/modules.symbols  ./</p>
+</blockquote>
+<p> 可解决<code>insmod: ERROR: could not insert module wrapfs.ko: Invalid module format</code> 问题</p>
+</li>
+<li><p>编译模块</p>
+<ul>
+<li>拷贝当前系统的Module.symvers到wrapfs源码处</li>
+</ul>
+<img src="/201702/Ubuntu发行版安装wrapfs/拷贝当前系统的Module.symvers.png" alt="[拷贝当前系统的Module.symvers]" title="[拷贝当前系统的Module.symvers]">
+<ul>
+<li><p>先在该源码树根目录执行<code>make</code> 生成必要的头文件（生成/include/generate/ 等包含版本信息的头文件），然后<code>Ctrl</code>+<code>c</code>强制停止。编译<code>wrapfs</code>模块 </p>
+<blockquote>
+<p>make -C /usr/src/linux-source-4.4.0/linux-source-4.4.0/ M=$PWD modules</p>
+</blockquote>
+<p>可能需要添加<code>CONFIG_WRAP_FS=m</code>选项</p>
+<blockquote>
+<p>sudo make CONFIG_WRAP_FS=m  –C /usr/src/linux-4.2.5/  M=$PWD modules</p>
+</blockquote>
+</li>
+<li><p>查看模块信息和当前内核版本匹配</p>
+<blockquote>
+<p>modinfo ./wrapfs.ko</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="撰写文章"><a href="#撰写文章" class="headerlink" title="撰写文章"></a>撰写文章</h2><ul>
-<li>头部标记<blockquote>
-<p>title:</p>
-<p>comments: false  禁止评论</p>
-<p>date: 2017-02-14 16:41:32</p>
-<p>categories: 类别</p>
-<p>tags:     标签</p>
-<p>  <code>- tag1</code></p>
-<p>  <code>- tag2</code></p>
-<p>toc: false    取消目录</p>
-<p>文章引言部分分割 <code>&lt;!-- more --&gt;</code></p>
+<img src="/201702/Ubuntu发行版安装wrapfs/查看模块信息.png" alt="[查看模块信息与当前内核版本匹配]" title="[查看模块信息与当前内核版本匹配]">
+<ul>
+<li><p>挂载成功</p>
+<blockquote>
+<p>sudo insmod wrapfs.ko</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="有用配置"><a href="#有用配置" class="headerlink" title="有用配置"></a>有用配置</h2><p>添加本地图片<br>在<code>站点配置文件</code>中开启文章的资源目录：<code>post_asset_folder: true</code> ，之后执行<code>hexo new</code>生成的 draft 或 post 都会附带一个与文章同名的目录，图片放在这个目录中即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img 图片名称.png [底部注释]%&#125;</div></pre></td></tr></table></figure>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
-<li>网页端可以正常打开，关于、标签、等其他页面在手机端无法打开本地测试可以使用，deploy到github后页面无法打开。<br>经查（错误信息和页面代码），由于GFW导致google字体无法使用。</li>
-</ul>
-<p><em>解决：</em>换用中科大镜像。<br>在<code>themes/next/_config.yml</code> 中的 <code>host</code>字段添加</p>
-<blockquote>
-<p>host: //fonts.proxy.ustclug.org</p>
-</blockquote>
-<p>无法发布，提示<code>ERROR Process failed: _posts/XXX.md</code><br>注意开头标签使用英文引号<code>:</code></p>
-<h2 id="手机端无法转入https"><a href="#手机端无法转入https" class="headerlink" title="手机端无法转入https"></a>手机端无法转入https</h2><p><strong>有效解决方案</strong></p>
-<p>修改<code>主题配置文件</code>中<code>menu</code>字段<code>about: /about</code> 改为<code>about: /abou/</code>(末尾添加”/“ ) </p>
-<hr>
-<p><strong>添加强制跳转无效</strong></p>
-<blockquote>
-<p>在网站模版的头中加入http到https的强制跳转。</p>
-<p>打开<code>themes/next/layout/_layout.swig</code>，在<head>标签中加入以下代码，注意把yoursite.com替换为自己的域名。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; &lt;script type="text/javascript"&gt;</div><div class="line">&gt;     var host = "yoursite.com";</div><div class="line">&gt;     if ((host == window.location.host) \</div><div class="line">&gt; 		&amp;&amp;(window.location.protocol != "https:"))</div><div class="line">&gt;         window.location.protocol = "https";</div><div class="line">&gt; &lt;/script&gt;</div><div class="line">&gt;</div></pre></td></tr></table></figure></head></p>
-<p>修改后，使用Hexo重新部署到Github上，完毕。</p>
-<p>添加证书（未使用该方式，github已经提供强制https，原理未深究）</p>
-</blockquote>
-<h2 id="提交到google搜索引擎"><a href="#提交到google搜索引擎" class="headerlink" title="提交到google搜索引擎"></a>提交到google搜索引擎</h2><p><a href="https://www.google.com/webmasters/tools/home?hl=zh-CN" target="_blank" rel="external">Google搜索引擎提交入口</a> (自备梯子)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">我们的博客系统使用了hexo，部署在Github上，因此下载Google的验证文件之后，需要在文件开头添加 layout: false 来取消hexo对其进行的转换，如下：</div><div class="line"></div><div class="line">$ ls source/</div><div class="line">_posts    googleXXXXX.html</div><div class="line"></div><div class="line">$ cat source/googleXXXXX.html</div><div class="line">layout: false</div><div class="line">---</div><div class="line">google-site-verification: googleXXXXX.html</div><div class="line">提交博客之后，需要等待一段时间才能在Google上搜到你的博客，因为Google需要时间来处理我们的请求、抓取相应网页并将其编入索引。此外，由于Google采用复杂的算法来更新已编入索引的资料，因此无法保证我们博客的所有更改都会被编入索引。</div></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://theme-next.iissnan.com/theme-settings.html#fonts-customization" target="_blank" rel="external">NexT官方文档设置字体</a></p>
-<p><a href="https://servers.ustclug.org/2014/06/blog-googlefonts-speedup/" target="_blank" rel="external">科大博客提供 Google Fonts 加速</a></p>
-<p><a href="https://github.com/iissnan/hexo-theme-next/issues/1187" target="_blank" rel="external">部署到github后点击菜单栏跳转至http</a></p>
-<p><a href="http://selfboot.cn/2014/12/21/add_blog_to_google/" target="_blank" rel="external">博客推广——提交搜索引擎</a></p>
-<p><a href="http://www.yuan-ji.me/Hexo-%E4%BC%98%E5%8C%96%EF%BC%9A%E6%8F%90%E4%BA%A4sitemap%E5%8F%8A%E8%A7%A3%E5%86%B3%E7%99%BE%E5%BA%A6%E7%88%AC%E8%99%AB%E6%8A%93%E5%8F%96-GitHub-Pages-%E9%97%AE%E9%A2%98/" target="_blank" rel="external">Hexo 优化：提交 sitemap 及解决百度爬虫无法抓取 GitHub Pages 链接问题</a></p>
+<img src="/201702/Ubuntu发行版安装wrapfs/挂载成功.png" alt="[挂载成功]" title="[挂载成功]">
+</li>
+</ol>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><strong>问题：</strong>    无法卸载模块<br><strong>场景复现：</strong> 成功<code>insmod</code> wrapfs 模块 重新编译新wrapfs模块，未卸载之前wrapfs模块，再次<code>insmod</code> wrapfs<br><strong>解决：</strong> 重启，未找到简单不重启解决方案。</p>
+<p>6和7 可以解决生成 .ko 文件却无法挂载的问题。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://wrapfs.filesystems.org/" target="_blank" rel="external">Wrapfs: A Stackable Passthru File System</a></p>
+<p><a href="http://download.filesystems.org/wrapfs/patches/" target="_blank" rel="external">patch下载地址</a></p>
+<p><a href="ftp://ftp.filesystems.org/pub/fistgen/linux-patches/2.4/README" target="_blank" rel="external">更新源码树</a></p>
+<p><a href="http://stackoverflow.com/questions/2720177/module-layout-version-incompatibility" target="_blank" rel="external">module_layout version incompatibility</a></p>
 
       
     </div>
@@ -482,11 +507,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/随手记录/" rel="tag"># 随手记录</a>
+            <a href="/tags/Wrapfs/" rel="tag"># Wrapfs</a>
           
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/踩坑/" rel="tag"># 踩坑</a>
+            <a href="/tags/内核模块/" rel="tag"># 内核模块</a>
           
         </div>
       
@@ -499,8 +524,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/201702142017-2-14/" rel="next" title="使用qemu模拟器搭建arm运行环境">
-                <i class="fa fa-chevron-left"></i> 使用qemu模拟器搭建arm运行环境
+              <a href="/201702/hexo使用与踩坑/" rel="next" title="hexo使用与踩坑">
+                <i class="fa fa-chevron-left"></i> hexo使用与踩坑
               </a>
             
           </div>
@@ -509,8 +534,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/20170216Ubuntu发行版安装wrapfs/" rel="prev" title="Ubuntu发行版安装wrapfs">
-                Ubuntu发行版安装wrapfs <i class="fa fa-chevron-right"></i>
+              <a href="/201703/加密文件系统性能调优/" rel="prev" title="加密文件系统性能调优">
+                加密文件系统性能调优 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,8 +562,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="20170216hexo使用与踩坑/"
-           data-title="hexo使用与踩坑" data-url="https://yanzhirun.github.io/20170216hexo使用与踩坑/">
+      <div class="ds-thread" data-thread-key="201702/Ubuntu发行版安装wrapfs/"
+           data-title="Ubuntu发行版安装wrapfs" data-url="https://yanzhirun.github.io/201702/Ubuntu发行版安装wrapfs/">
       </div>
     
   </div>
@@ -685,7 +710,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试和发布"><span class="nav-text">测试和发布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撰写文章"><span class="nav-text">撰写文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有用配置"><span class="nav-text">有用配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手机端无法转入https"><span class="nav-text">手机端无法转入https</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交到google搜索引擎"><span class="nav-text">提交到google搜索引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
