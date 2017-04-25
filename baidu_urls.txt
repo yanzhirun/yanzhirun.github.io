@@ -1,6 +1,6 @@
+https://yanzhirun.github.io/2017/机器人项目/
 https://yanzhirun.github.io/2017/机器学习笔记（斯坦福公开课）/
 https://yanzhirun.github.io/2017/加密文件系统性能调优/
 https://yanzhirun.github.io/2017/Ubuntu发行版安装wrapfs/
 https://yanzhirun.github.io/2017/hexo使用与踩坑/
 https://yanzhirun.github.io/2017/使用qemu模拟器搭建arm运行环境/
-https://yanzhirun.github.io/2017/搭建小结/
