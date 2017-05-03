@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="机器人,ROS,Turtulebot,笔记," />
+  <meta name="keywords" content="NexT, Blog, yanzhirun, 颜智润" />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
-<meta name="keywords" content="机器人,ROS,Turtulebot,笔记">
+<meta name="description" content="title: 机器人项目tags:  机器人 ROS Turtulebot 笔记date: 2017-04-25T17:17:23.000Zcategories: 机器人   研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器人项目">
+<meta property="og:title" content="YanZhirun's Blog">
 <meta property="og:url" content="https://yanzhirun.github.io/2017/机器人项目/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
-<meta property="og:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
-<meta property="og:updated_time" content="2017-04-25T09:31:29.000Z">
+<meta property="og:description" content="title: 机器人项目tags:  机器人 ROS Turtulebot 笔记date: 2017-04-25T17:17:23.000Zcategories: 机器人   研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对">
+<meta property="og:updated_time" content="2017-05-03T04:44:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器人项目">
-<meta name="twitter:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
+<meta name="twitter:title" content="YanZhirun's Blog">
+<meta name="twitter:description" content="title: 机器人项目tags:  机器人 ROS Turtulebot 笔记date: 2017-04-25T17:17:23.000Zcategories: 机器人   研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对">
 
 
 
@@ -131,7 +131,7 @@
 
 
 
-  <title> 机器人项目 | YanZhirun's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>  | YanZhirun's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -301,7 +301,7 @@
             
             
               
-                机器人项目
+                
               
             
           </h1>
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T17:17:23+08:00">
-                2017-04-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-03T16:08:49+08:00">
+                2017-05-03
               </time>
             
 
@@ -326,28 +326,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器人/" itemprop="url" rel="index">
-                    <span itemprop="name">机器人</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -366,7 +344,7 @@
 
           
           
-             <span id="/2017/机器人项目/" class="leancloud_visitors" data-flag-title="机器人项目">
+             <span id="/2017/机器人项目/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,7 +373,16 @@
       
 
       
-        <p>研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。<br>本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过<code>sa615371@mail.ustc.edu.cn</code>  与本人讨论，共同解决。<br><a id="more"></a></p>
+        <hr>
+<p>title: 机器人项目<br>tags:</p>
+<ul>
+<li>机器人</li>
+<li>ROS</li>
+<li>Turtulebot</li>
+<li>笔记<br>date: 2017-04-25T17:17:23.000Z<br>categories: 机器人</li>
+</ul>
+<hr>
+<p>研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。<br>本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过<code>sa615371@mail.ustc.edu.cn</code>  与本人讨论，共同解决。<br><a id="more"></a></p>
 <h2 id="参考手册遇到问题"><a href="#参考手册遇到问题" class="headerlink" title="参考手册遇到问题"></a>参考手册遇到问题</h2><p><strong> Tips </strong></p>
 <ol>
 <li>部分命令包含中文字符</li>
@@ -407,9 +394,8 @@
 <li>ROS版本，如14.04安装indigo版ROS<br> 安装Turtlebot对应软件<code>E: Unable to locate package ros-groovy-turtlebot-apps</code><br> <strong>ROS 与 Ubuntu版本要对应</strong><br> Ubuntu 14.04对应Indigo 版本的ROS<br> 之前尝试安装groovy对应的是12.04版，所以apt-get 找不到对应包，</li>
 <li>环境变量<br> <strong>看英文资料要注意细节</strong></li>
 <li>无法运行<code>rosbash</code> <code>roslaunch</code> 等命令<br> 环境变量设置出错，官方wiki提供说明</li>
-<li><p>键盘无法操控<br> 不支持usb 3.0，bios中禁用usb3.0。未测试的<a href="http://learn.turtlebot.com/2015/02/01/8/" target="_blank" rel="external">解决方案</a>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">these have occurred because Kinect isn’t compatible with USB 3.0. Plug it into a USB 2.0 port. (Problems can also occur with USB 2.0 ports that are 3.0 compatible.).</div></pre></td></tr></table></figure>
-</li>
+<li>键盘无法操控<br> 不支持usb 3.0，bios中禁用usb3.0。未测试的<a href="http://learn.turtlebot.com/2015/02/01/8/" target="_blank" rel="external">解决方案</a>。<pre><code>these have occurred because Kinect isn’t compatible with USB 3.0. Plug it into a USB 2.0 port. (Problems can also occur with USB 2.0 ports that are 3.0 compatible.).
+</code></pre></li>
 <li><p>无法找到设备<br> 缺少驱动，厂家提供了64位驱动不可使用，自行编译x86平台驱动，摄像头可以正常工作，但是加载3d launch仍然无法工作。<br>参考厂商网站<a href="http://edu.gaitech.hk/turtlebot/openKinect-turtlebot.html#kinect-3d-sensor-configuration" target="_blank" rel="external">kinect 3d sensor教程</a><br>depth image无法显示。<br><a href="https://github.com/avin2/SensorKinect" target="_blank" rel="external">kinectdriver</a></p>
 </li>
 <li><p>其他</p>
@@ -422,34 +408,89 @@
 <li>建议在搭建环境测试demo的同时，参考官方wiki学习。</li>
 <li>配备远程工作站会有利于开发。由于ROS支持分布式运算，建议大型程序运行在工作站。</li>
 <li>以下demo均需配备Turtlebot笔记本（可运行ROS的ubuntu，具有usb2.0接口）</li>
+<li>工作站开启rviz界面需要确保Turtlebot笔记本与工作站网段配置正确。</li>
 </ul>
 <p>基础知识：</p>
 <ul>
 <li>需要设置环境变量确保ROS能够准确定位文件。</li>
-<li>roscore 用来显式启动ROS的节点管理器，用来实现节点间的通讯。如果运行中中断，再次连接后当前运行的其他节点也无法重新连接，需要重启所有节点。</li>
+<li>roscore 用来显式启动ROS的节点管理器，用来实现节点间的通讯。如果运行中中断，再次连接后当前运行的其他节点也无法重新连接，需要重启所有节点。底层通讯通过HTTP完成，本质是一个HTTP服务器。通常地址为本机11311端口。</li>
 <li>roslaunch工具用来一次性启动多个节点，会自动启动roscore，或使用当前已运行的roscore。</li>
+<li>rosrun 一次只能启动一个节点。</li>
 <li>节点通讯利用消息传递。消息存放在话题中。节点发布（Publish）或者订阅（Subscribe）消息对应的话题。节点不需要显式知道其他节点是否存在，消息并不通过节点管理器转交。</li>
 <li>rqt_graph用于查看节点构成图。其本身也是一个节点。/rosout节点用于生成日志信息。</li>
 <li>URDF（Unified Robot Description Format）统一机器人描述格式。ROS中的urdf功能包包含一个URDF的C++解析器，URDF文件使用XML格式描述机器人模型</li>
 </ul>
+<h3 id="工作站配置与检测"><a href="#工作站配置与检测" class="headerlink" title="工作站配置与检测"></a>工作站配置与检测</h3><h4 id="turtlebot端ip-ip_of_turtlebot"><a href="#TurtleBot端-IP-IP-OF-TURTLEBOT" class="headerlink" title="TurtleBot端(IP: IP_OF_TURTLEBOT)"></a>TurtleBot端(IP: IP_OF_TURTLEBOT)</h4><ul>
+<li>deb安装 添加到 ~.bashrc</li>
+<li>source 安装 添加到 ~/catkin_ws/devel/setup.bash</li>
+</ul>
+<blockquote>
+<p>$ export ROS_MASTER_URI=<a href="http://localhost:11311" target="_blank" rel="external">http://localhost:11311</a><br>$ export ROS_HOSTNAME=IP_OF_TURTLEBOT </p>
+</blockquote>
+<h4 id="工作站端ipip_of_pc"><a href="#工作站端-IP-IP-OF-PC" class="headerlink" title="工作站端(IP:IP_OF_PC)"></a>工作站端(IP:IP_OF_PC)</h4><ul>
+<li>添加到 ~/.bashrc</li>
+</ul>
+<blockquote>
+<p>echo export ROS_MASTER_URI=<a href="http://IP_OF_TURTLEBOT:11311" target="_blank" rel="external">http://IP_OF_TURTLEBOT:11311</a><br>echo export ROS_HOSTNAME=IP_OF_PC </p>
+</blockquote>
+<h4 id="验证连接"><a href="#验证连接" class="headerlink" title="验证连接"></a>验证连接</h4><p>工作站运行</p>
+<blockquote>
+<p>rostopic list<br>rostopic echo /diagnostics<br>如果报warning 检查Turtlebot上ROS_MASTER_URI设置是否正确</p>
+<p>rostopic pub -r 10 /hello std_msgs/String “hello”</p>
+</blockquote>
+<p>TurtleBot运行</p>
+<blockquote>
+<blockquote>
+<p>rostopic echo /hello</p>
+</blockquote>
+</blockquote>
 <h3 id="键盘控制"><a href="#键盘控制" class="headerlink" title="键盘控制"></a>键盘控制</h3><p>单纯的运动控制，不包含避障功能。运行在移动终端会方便操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch turtlebot_bringup minimal.launch</div><div class="line">$roslaunch turtlebot_teleop keyboard_teleop.launch</div></pre></td></tr></table></figure>
-<p>三条命令分别在不同终端窗口运行，运行过程不可关闭。<br>第三条命令可运行在工作站，或者通过手机ssh到turtlebot笔记本，方便控制。</p>
+<pre><code>$roscore
+$roslaunch turtlebot_bringup minimal.launch
+$roslaunch turtlebot_teleop keyboard_teleop.launch
+</code></pre><p>三条命令分别在不同终端窗口运行，运行过程不可关闭。<br>第三条命令可运行在工作站，或者通过手机ssh到turtlebot笔记本，方便控制。</p>
 <p><del>核心包：move_base</del></p>
-<p>###构建地图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch turtlebot_bringup minimal.launch</div><div class="line">$roslaunchturtlebot_navigation gmapping_demo.launch    </div><div class="line">//上述命令运行在turtlebot笔记本</div><div class="line"></div><div class="line">$roslaunch turtlebot_rviz_launchers view_navigation.launch   //建议运行在工作站</div><div class="line">$roslaunch turtlebot_teleop keyboard_teleop.launch    //建议运行在移动终端</div><div class="line">$rosrun map_server map_saver -f /path/to/save/my_map    //地图保存，保存后确认在指定目录下生成my_map.yaml和my_map.pgm两个文件</div></pre></td></tr></table></figure></p>
-<p>核心包：gmapping</p>
-<h3 id="自动导航与路径规划"><a href="#自动导航与路径规划" class="headerlink" title="自动导航与路径规划"></a>自动导航与路径规划</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch turtlebot_bringup minimal.launch</div><div class="line">$roslaunch turtlebot_navigation amcl_demo.launch  map_file:=/path/to/map/map.yaml</div><div class="line">//odom received!才表示加载成功，中间有些warning可以忽略</div><div class="line">//以上命令运行在turtlebot笔记本</div><div class="line">$rosrun rviz rviz -d `rospack find rbx1_nav`/nav_test.rviz    //消耗大量资源，建议运行在工作站</div></pre></td></tr></table></figure>
-<p>核心包：</p>
+<p>###构建地图</p>
+<pre><code>$roscore
+$roslaunch turtlebot_bringup minimal.launch
+$roslaunchturtlebot_navigation gmapping_demo.launch    
+//上述命令运行在turtlebot笔记本
+
+$roslaunch turtlebot_rviz_launchers view_navigation.launch   //建议运行在工作站
+$roslaunch turtlebot_teleop keyboard_teleop.launch    //建议运行在移动终端
+$rosrun map_server map_saver -f /path/to/save/my_map    //地图保存，保存后确认在指定目录下生成my_map.yaml和my_map.pgm两个文件
+</code></pre><p>核心包：gmapping</p>
+<h3 id="自动导航与路径规划"><a href="#自动导航与路径规划" class="headerlink" title="自动导航与路径规划"></a>自动导航与路径规划</h3><pre><code>$roscore
+$roslaunch turtlebot_bringup minimal.launch
+$roslaunch turtlebot_navigation amcl_demo.launch  map_file:=/path/to/map/map.yaml
+//odom received!才表示加载成功，中间有些warning可以忽略
+//以上命令运行在turtlebot笔记本
+$rosrun rviz rviz -d `rospack find rbx1_nav`/nav_test.rviz    //消耗大量资源，建议运行在工作站
+</code></pre><p>核心包：</p>
 <ul>
 <li>amcl</li>
 <li>move_base</li>
 </ul>
 <h3 id="前往指定点"><a href="#前往指定点" class="headerlink" title="前往指定点"></a>前往指定点</h3><p>使用git上的<a href="https://github.com/markwsilliman/turtlebot/" target="_blank" rel="external">demo</a><br>其中包含前进，带有避障的前进，前往地图上特定点等python程序。可以直接使用。</p>
 <p>在rviz中的地图找到对应坐标，在前一部分demo的基础上，直接在新终端运行即可。可以关闭rviz，rviz会占用大量资源和带宽。rviz仅为了方便观察机器人状态信息。</p>
-<h3 id="命令行发布消息"><a href="#命令行发布消息" class="headerlink" title="命令行发布消息"></a>命令行发布消息</h3><p>命令行驱动turtlebot运动的关键点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rostopic pub /cmd_vel_mux/input/teleop geometry_msgs/Twist -1 -- &apos;[0.2,0,0]&apos; &apos;[0,0,0]&apos;</div></pre></td></tr></table></figure></p>
-<p>关键点：查找相关 topic</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$rostopic list -v    // 列出发布和订阅的话题及其类型的详细信息</div><div class="line">//如，Twist消息控制运动</div><div class="line">//cmd_vel_mux/input/switch [geometry_msgs/Twist] 1 subscriber</div><div class="line">$rostopic echo /cmd_vel_mux</div><div class="line">$rosmsg show geometry_msgs/Twist</div><div class="line">$rostopic pub -1  [topic]  [msg_type]  [args]</div><div class="line">//通过pub发布数据到某个正在广播的话题上，如下</div><div class="line">$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- &apos;[2.0, 0.0, 0.0]&apos; &apos;[0.0, 0.0, 1.8]&apos;</div><div class="line">//-1 代表发出一条消息后立刻退出 或者 使用参数 -r 3 代表以3Hz频率发表</div><div class="line">//双破折号代表后面接的是参数而非命令</div><div class="line">$rosrun rqt_graph rqt_graph</div><div class="line">//个显示当前系统运行情况的动态图形</div><div class="line">$rosrun rqt_plot rqt_plot</div><div class="line">//绘制正在发布的数据变化图形，在弹出窗口中Topic输入框输入/turtlebot1/pose</div></pre></td></tr></table></figure>
-<h3 id="核心包分析"><a href="#核心包分析" class="headerlink" title="核心包分析"></a>核心包分析</h3><h4 id="move_base"><a href="#move-base" class="headerlink" title="move_base"></a>move_base</h4><p>move_base包提供了一个动作的实现（参见actionlib包），在地图上给定一个目标，move_base将会规划出路径并使机器人避开障碍物从而到达目标。详见：<a href="http://wiki.ros.org/move_base" target="_blank" rel="external">http://wiki.ros.org/move_base</a><br>move_base节点将全局导航和局部导航链接在一起以完成其导航任务。全局导航用于建立到地图上最终目标或一个远距离目标的路径，局部导航用于建立到近距离目标和为了临时躲避障碍物的路径。</p>
+<h3 id="命令行发布消息"><a href="#命令行发布消息" class="headerlink" title="命令行发布消息"></a>命令行发布消息</h3><p>命令行驱动turtlebot运动的关键点</p>
+<pre><code>$rostopic pub /cmd_vel_mux/input/teleop geometry_msgs/Twist -1 -- &apos;[0.2,0,0]&apos; &apos;[0,0,0]&apos;
+</code></pre><p>关键点：查找相关 topic</p>
+<pre><code>$rostopic list -v    // 列出发布和订阅的话题及其类型的详细信息
+//如，Twist消息控制运动
+//cmd_vel_mux/input/switch [geometry_msgs/Twist] 1 subscriber
+$rostopic echo /cmd_vel_mux
+$rosmsg show geometry_msgs/Twist
+$rostopic pub -1  [topic]  [msg_type]  [args]
+//通过pub发布数据到某个正在广播的话题上，如下
+$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- &apos;[2.0, 0.0, 0.0]&apos; &apos;[0.0, 0.0, 1.8]&apos;
+//-1 代表发出一条消息后立刻退出 或者 使用参数 -r 3 代表以3Hz频率发表
+//双破折号代表后面接的是参数而非命令
+$rosrun rqt_graph rqt_graph
+//个显示当前系统运行情况的动态图形
+$rosrun rqt_plot rqt_plot
+//绘制正在发布的数据变化图形，在弹出窗口中Topic输入框输入/turtlebot1/pose
+</code></pre><h3 id="核心包分析"><a href="#核心包分析" class="headerlink" title="核心包分析"></a>核心包分析</h3><h4 id="move_base"><a href="#move-base" class="headerlink" title="move_base"></a>move_base</h4><p>move_base包提供了一个动作的实现（参见actionlib包），在地图上给定一个目标，move_base将会规划出路径并使机器人避开障碍物从而到达目标。详见：<a href="http://wiki.ros.org/move_base" target="_blank" rel="external">http://wiki.ros.org/move_base</a><br>move_base节点将全局导航和局部导航链接在一起以完成其导航任务。全局导航用于建立到地图上最终目标或一个远距离目标的路径，局部导航用于建立到近距离目标和为了临时躲避障碍物的路径。</p>
 <p>运行move_base 节点需要调节相应的参数，机器人半径，移动速度等，配置文件位于rbx1_nav包下turtlebot/config/ 包含以下四个文件</p>
 <blockquote>
 <p>base_local_planner_params.yaml<br>global_costmap_params.yaml<br>costmap_common_params.yaml<br>local_costmap_params.yaml</p>
@@ -480,17 +521,38 @@
 </ul>
 </li>
 </ul>
-<h3 id="图像到点云的转换"><a href="#图像到点云的转换" class="headerlink" title="图像到点云的转换"></a>图像到点云的转换</h3><p>显示RGB和Depth图像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch freenect_launch freenect.launch</div><div class="line">//报warning忽略即可</div><div class="line">$rosrun image_view image_view image:=/camera/rgb/image_color</div><div class="line">//显示RGB图像</div><div class="line">$ rosrun image_view disparity_view image:=/camera/depth/disparity</div><div class="line">//显示深度图像</div></pre></td></tr></table></figure></p>
-<p>显示图片和3d图像</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch turtlebot_bringup minimal.launch</div><div class="line">$roslaunch turtlebot_bringup 3dsensor.launch</div><div class="line">$roslaunch turtlebot_rviz_launchers view_robot.launch</div></pre></td></tr></table></figure>
-<p>人脸识别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch openni_launch openni.launch</div><div class="line">$roslaunch freenect_launch freenect.launch</div><div class="line">$roslaunch rbx1_vision face_detector.launch</div><div class="line">//人脸识别</div><div class="line">$roslaunch rbx1_vision good_features.launch</div><div class="line">//关键点检测</div></pre></td></tr></table></figure></p>
-<p>骨架追踪</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$roscore</div><div class="line">$roslaunch openni_launch openni.launch</div><div class="line">$roslaunch skeletcon_makers markers_from_tf.launch</div><div class="line">$rosrun rviz rviz -d `rospack find skeleton_markers`/markers_from_tf.rviz</div></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://wiki.ros.org/Distributions" target="_blank" rel="external">ros版本对应</a></p>
+<h3 id="图像到点云的转换"><a href="#图像到点云的转换" class="headerlink" title="图像到点云的转换"></a>图像到点云的转换</h3><p>显示RGB和Depth图像</p>
+<pre><code>$roscore
+$roslaunch freenect_launch freenect.launch
+//报warning忽略即可
+$rosrun image_view image_view image:=/camera/rgb/image_color
+//显示RGB图像
+$ rosrun image_view disparity_view image:=/camera/depth/disparity
+//显示深度图像
+</code></pre><p>显示图片和3d图像</p>
+<pre><code>$roscore
+$roslaunch turtlebot_bringup minimal.launch
+$roslaunch turtlebot_bringup 3dsensor.launch
+$roslaunch turtlebot_rviz_launchers view_robot.launch
+</code></pre><p>人脸识别</p>
+<pre><code>$roscore
+$roslaunch openni_launch openni.launch
+$roslaunch freenect_launch freenect.launch
+$roslaunch rbx1_vision face_detector.launch
+//人脸识别
+$roslaunch rbx1_vision good_features.launch
+//关键点检测
+</code></pre><p>骨架追踪</p>
+<pre><code>$roscore
+$roslaunch openni_launch openni.launch
+$roslaunch skeletcon_makers markers_from_tf.launch
+$rosrun rviz rviz -d `rospack find skeleton_markers`/markers_from_tf.rviz
+</code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://wiki.ros.org/Distributions" target="_blank" rel="external">ros版本对应</a></p>
 <p><a href="http://wiki.ros.org/cn/indigo/Installation/Ubuntu" target="_blank" rel="external">在Ubuntu中安装ROS Indigo</a></p>
 <p><a href="http://wiki.ros.org/Robots/TurtleBot" target="_blank" rel="external">TurtleBot</a></p>
 <p><a href="http://wiki.ros.org/rosbash" target="_blank" rel="external">rosbash</a></p>
 <p><a href="http://wiki.ros.org/kinetic/Installation/Source" target="_blank" rel="external">源码安装环境</a></p>
+<p><a href="http://wiki.ros.org/turtlebot/Tutorials/indigo/Network%20Configuration" target="_blank" rel="external">Network Configuration</a></p>
 <p><a href="http://blog.ethanlim.net/2013/08/installing-openni-nite-sensorkinect-on.html" target="_blank" rel="external">INSTALLING OPENNI, NITE, SENSORKINECT ON UBUNTU 12.04</a></p>
 <p><a href="http://ros.gaitech.net/forum.php?mod=viewthread&amp;tid=2877&amp;extra=" target="_blank" rel="external">论坛入门</a></p>
 <p><a href="http://wiki.ros.org/turtlebot_navigation/Tutorials/indigo/Autonomously%20navigate%20in%20a%20known%20map" target="_blank" rel="external">在已知地图上导航方法</a></p>
@@ -519,18 +581,6 @@
 
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/机器人/" rel="tag"># 机器人</a>
-          
-            <a href="/tags/ROS/" rel="tag"># ROS</a>
-          
-            <a href="/tags/Turtulebot/" rel="tag"># Turtulebot</a>
-          
-            <a href="/tags/笔记/" rel="tag"># 笔记</a>
-          
-        </div>
       
 
       
@@ -576,7 +626,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2017/机器人项目/"
-           data-title="机器人项目" data-url="https://yanzhirun.github.io/2017/机器人项目/">
+           data-title="" data-url="https://yanzhirun.github.io/2017/机器人项目/">
       </div>
     
   </div>
@@ -723,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考手册遇到问题"><span class="nav-text">参考手册遇到问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置注意事项与问题解决方案"><span class="nav-text">安装配置注意事项与问题解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo测试"><span class="nav-text">demo测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘控制"><span class="nav-text">键盘控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动导航与路径规划"><span class="nav-text">自动导航与路径规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前往指定点"><span class="nav-text">前往指定点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行发布消息"><span class="nav-text">命令行发布消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心包分析"><span class="nav-text">核心包分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#move_base"><span class="nav-text">move_base</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#全剧路径规划global-planner"><span class="nav-text">全剧路径规划（global planner）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#本地实时规划local-planner"><span class="nav-text">本地实时规划（local planner）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amcl"><span class="nav-text">amcl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gmaping"><span class="nav-text">gmaping</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slam学习"><span class="nav-text">SLAM学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识了解"><span class="nav-text">基础知识了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rgb-d-slam"><span class="nav-text">RGB-D SLAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像到点云的转换"><span class="nav-text">图像到点云的转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考手册遇到问题"><span class="nav-text">参考手册遇到问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置注意事项与问题解决方案"><span class="nav-text">安装配置注意事项与问题解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo测试"><span class="nav-text">demo测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作站配置与检测"><span class="nav-text">工作站配置与检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#turtlebot端ip-ip_of_turtlebot"><span class="nav-text">TurtleBot端(IP: IP_OF_TURTLEBOT)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作站端ipip_of_pc"><span class="nav-text">工作站端(IP:IP_OF_PC)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证连接"><span class="nav-text">验证连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘控制"><span class="nav-text">键盘控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动导航与路径规划"><span class="nav-text">自动导航与路径规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前往指定点"><span class="nav-text">前往指定点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行发布消息"><span class="nav-text">命令行发布消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心包分析"><span class="nav-text">核心包分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#move_base"><span class="nav-text">move_base</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#全剧路径规划global-planner"><span class="nav-text">全剧路径规划（global planner）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#本地实时规划local-planner"><span class="nav-text">本地实时规划（local planner）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#amcl"><span class="nav-text">amcl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gmaping"><span class="nav-text">gmaping</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slam学习"><span class="nav-text">SLAM学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识了解"><span class="nav-text">基础知识了解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rgb-d-slam"><span class="nav-text">RGB-D SLAM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像到点云的转换"><span class="nav-text">图像到点云的转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
