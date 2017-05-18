@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://yanzhirun.github.io/2017/机器人项目/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。 本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
-<meta property="og:updated_time" content="2017-05-18T03:22:30.000Z">
+<meta property="og:updated_time" content="2017-05-18T03:34:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器人项目">
 <meta name="twitter:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。 本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
@@ -563,7 +563,9 @@
 <p><code>map</code> 框架作为长期的全局参考是有效的，但是位置估计中的离散跳跃使得它在局部感知的表现不好。</p>
 <p>通常设置x轴指向东，y轴指向北，z轴竖直向上。z为海平面。</p>
 <p>4.earth<br><code>earth</code> 框架用于不同<code>map</code> 框架下多个机器人的交互。如果在多个机器人运行在同一个地图中，可以不需要。如果有多个地图并且机器人之间桥接数据则需要该框架。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: Start</div><div class="line">e=&gt;end: End</div><div class="line">op1=&gt;operation: op1</div><div class="line">op2=&gt;operation: op2</div><div class="line"></div><div class="line">st-&gt;op1-&gt;op2-&gt;e</div></pre></td></tr></table></figure>
+
+<div id="flowchart-0" class="flow-chart"></div>
+
 <h2 id="slam学习"><a href="#SLAM学习" class="headerlink" title="SLAM学习"></a>SLAM学习</h2><h3 id="基础知识了解"><a href="#基础知识了解" class="headerlink" title="基础知识了解"></a>基础知识了解</h3><p>SLAM包括定位、建图和路径规划三块内容。</p>
 <p>地图构建主要是环境表达方式和传感器数据的解释。</p>
 <p>定位是追踪和全局定位</p>
@@ -598,6 +600,12 @@
 <p><a href="http://www.itwendao.com/article/detail/164397.html" target="_blank" rel="external">http://www.itwendao.com/article/detail/164397.html</a></p>
 <p><a href="https://www.openslam.org/gmapping.html" target="_blank" rel="external">OpenSLAM gmapping</a></p>
 <p><a href="http://www.ros.org/reps/rep-0105.html#id12" target="_blank" rel="external">ROS坐标框架</a></p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
+e=>end: End
+op1=>operation: op1
+op2=>operation: op2
+
+st->op1->op2->e</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
       
     </div>
