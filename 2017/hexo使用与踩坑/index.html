@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://yanzhirun.github.io/2017/hexo使用与踩坑/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
-<meta property="og:updated_time" content="2017-05-18T03:48:37.000Z">
+<meta property="og:updated_time" content="2017-05-18T03:52:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用与踩坑">
 <meta name="twitter:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
@@ -433,22 +433,32 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="有用配置"><a href="#有用配置" class="headerlink" title="有用配置"></a>有用配置</h2><p>1.添加本地图片<br>在<code>站点配置文件</code>中开启文章的资源目录：<code>post_asset_folder: true</code> ，之后执行<code>hexo new</code>生成的 draft 或 post 都会附带一个与文章同名的目录，图片放在这个目录中即可。</p>
+<h2 id="有用配置"><a href="#有用配置" class="headerlink" title="有用配置"></a>有用配置</h2><ol>
+<li>添加本地图片<br>在<code>站点配置文件</code>中开启文章的资源目录：<code>post_asset_folder: true</code> ，之后执行<code>hexo new</code>生成的 draft 或 post 都会附带一个与文章同名的目录，图片放在这个目录中即可。</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img 图片名称.png [底部注释]%&#125;</div></pre></td></tr></table></figure>
-<p>2.添加流程图<br>流程图分为两部分</p>
+<ol>
+<li>添加流程图<br>流程图分为两部分</li>
+</ol>
 <ul>
 <li>定义元素</li>
-<li>连接元素<br>格式如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tag=&gt;type: content:&gt;url</div></pre></td></tr></table></figure>
-</li>
+<li>连接元素</li>
 </ul>
-<p>1.tag：标签，用于连接元素时使用<br>2.type：该标签的类型。共有6种类型如下：</p>
+<p>格式如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tag=&gt;type: content:&gt;url</div></pre></td></tr></table></figure></p>
+<ol>
+<li>tag：标签，用于连接元素时使用</li>
+<li><p>type：该标签的类型。共有6种类型如下：</p>
 <blockquote>
 <p>start<br>end<br>operation<br>subroutine<br>condition<br>inputoutput</p>
 </blockquote>
-<p>3.content：流程语句中放置的内容<br>type:与content之间一定要有一个空格，否则会出问题！</p>
-<p>4.url：链接，与流程语句绑定</p>
+</li>
+<li><p>content：流程语句中放置的内容<br>type:与content之间一定要有一个空格，否则会出问题！</p>
+</li>
+<li><p>url：链接，与流程语句绑定</p>
+</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% raw %&#125;</div><div class="line">content</div><div class="line">&#123;% endraw %&#125;</div></pre></td></tr></table></figure>
-<p>content中放flow代码，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;% raw %&#125;</div><div class="line">&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</div><div class="line">&#123;% endraw %&#125;</div></pre></td></tr></table></figure></p>
+<p>content中放flow代码，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% raw %&#125;</div><div class="line">&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</div><div class="line">&#123;% endraw %&#125;</div></pre></td></tr></table></figure></p>
 <p>结果如下<br>
 <div id="flowchart-1" class="flow-chart"></div>
 </p>
