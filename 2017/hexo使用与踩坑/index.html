@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://yanzhirun.github.io/2017/hexo使用与踩坑/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
-<meta property="og:updated_time" content="2017-04-20T07:06:58.000Z">
+<meta property="og:updated_time" content="2017-05-18T03:48:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo使用与踩坑">
 <meta name="twitter:description" content="根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。">
@@ -433,8 +433,25 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="有用配置"><a href="#有用配置" class="headerlink" title="有用配置"></a>有用配置</h2><p>添加本地图片<br>在<code>站点配置文件</code>中开启文章的资源目录：<code>post_asset_folder: true</code> ，之后执行<code>hexo new</code>生成的 draft 或 post 都会附带一个与文章同名的目录，图片放在这个目录中即可。</p>
+<h2 id="有用配置"><a href="#有用配置" class="headerlink" title="有用配置"></a>有用配置</h2><p>1.添加本地图片<br>在<code>站点配置文件</code>中开启文章的资源目录：<code>post_asset_folder: true</code> ，之后执行<code>hexo new</code>生成的 draft 或 post 都会附带一个与文章同名的目录，图片放在这个目录中即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% asset_img 图片名称.png [底部注释]%&#125;</div></pre></td></tr></table></figure>
+<p>2.添加流程图<br>流程图分为两部分</p>
+<ul>
+<li>定义元素</li>
+<li>连接元素<br>格式如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tag=&gt;type: content:&gt;url</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>1.tag：标签，用于连接元素时使用<br>2.type：该标签的类型。共有6种类型如下：</p>
+<blockquote>
+<p>start<br>end<br>operation<br>subroutine<br>condition<br>inputoutput</p>
+</blockquote>
+<p>3.content：流程语句中放置的内容<br>type:与content之间一定要有一个空格，否则会出问题！</p>
+<p>4.url：链接，与流程语句绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;% raw %&#125;</div><div class="line">content</div><div class="line">&#123;% endraw %&#125;</div></pre></td></tr></table></figure>
+<p>content中放flow代码，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&#123;% raw %&#125;</div><div class="line">&lt;div id=&quot;flowchart-0&quot; class=&quot;flow-chart&quot;&gt;&lt;/div&gt;</div><div class="line">&#123;% endraw %&#125;</div></pre></td></tr></table></figure></p>
+<p>结果如下<br>
+<div id="flowchart-1" class="flow-chart"></div>
+</p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
 <li>网页端可以正常打开，关于、标签、等其他页面在手机端无法打开本地测试可以使用，deploy到github后页面无法打开。<br>经查（错误信息和页面代码），由于GFW导致google字体无法使用。</li>
 </ul>
@@ -473,6 +490,23 @@
 <p><a href="http://lukang.me/2014/mathjax-for-hexo.html" target="_blank" rel="external">在 Hexo 中完美使用 Mathjax 输出数学公式</a></p>
 <p><a href="http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/" target="_blank" rel="external">Mathjax与LaTex公式简介</a></p>
 <p><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">Mathjax</a></p>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Start
+op=>operation: Your Operation
+sub=>subroutine: My Subroutine
+cond=>condition: Yes or No?
+io=>inputoutput: catch something...
+e=>end: End
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub(right)->op</textarea><textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script><textarea id="flowchart-1-code" style="display: none">st=>start: Start
+op=>operation: Your Operation
+sub=>subroutine: My Subroutine
+cond=>condition: Yes or No?
+io=>inputoutput: catch something...
+e=>end: End
+st->op->cond
+cond(yes)->io->e
+cond(no)->sub(right)->op</textarea><textarea id="flowchart-1-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-1-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-1-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-1", options);</script></p>
 
       
     </div>
