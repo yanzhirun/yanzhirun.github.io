@@ -94,7 +94,7 @@
 <meta property="og:url" content="https://yanzhirun.github.io/2017/机器人项目/index.html">
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。 本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
-<meta property="og:updated_time" content="2017-05-18T08:48:24.000Z">
+<meta property="og:updated_time" content="2017-05-19T11:01:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器人项目">
 <meta name="twitter:description" content="研二下学期接手机器人项目，采用Turtlebot展开学习，目标实现银行导领机器人，减轻甚至逐步取代大堂经理的工作。以下内容默认采取ROS indigo版本。 本文包括环境配置过程中遇到的问题、demo调试、ROS包分析以及对SLAM学习的内容，本文随项目进度记录要点而非完整过程。如遇到相似问题可通过sa615371@mail.ustc.edu.cn  与本人讨论，共同解决。">
@@ -558,10 +558,12 @@
 <p>2.odom<br><code>odom</code>是一个世界坐标系。移动平台的位置在<code>odom</code> 框架中可以无限制的任意漂移。这种漂移使得<code>odom</code>  框架不能作为长期稳定的全局位置参考。但是，机器人的位置在<code>odom</code> 框架中是连续的，这意味着移动平台的位置在<code>odom</code> 框架中总是平滑无离散跳跃的。</p>
 <p>在典型的设置中，<code>odom</code> 框架的计算基于里程计信息，如轮式里程计（wheel odometry）和视觉里程计（visual odometry）或者其他的惯性测量装置。</p>
 <p><code>odom</code> 框架作为精确的短期的局部参考是精确的，但是漂移让它不能作为长期的参考的框架。</p>
-<p>3.map<br><code>map</code> 是一个拥有指向正上方z轴的世界坐标系。移动平台的位置不能随着时间有明显的漂移。<code>map</code> 框架不是连续的，意味着移动平台的位置可以在任意时间有离散的跳跃。</p>
+<p>3.map<br><code>map</code> 是一个拥有指向天空的z轴的世界坐标系。移动平台的位置不能随着时间有明显的漂移。<code>map</code> 框架不是连续的，意味着移动平台的位置可以在任意时间有离散的跳跃。</p>
 <p>在典型的设置中，定位组件根据传感器的观测值不断重新计算机器人在<code>map</code> 框架中的位置。因此消除了漂移，但是当新的传感器数据到达时会导致离散的跳跃</p>
 <p><code>map</code> 框架作为长期的全局参考是有效的，但是位置估计中的离散跳跃使得它在局部感知的表现不好。</p>
 <p>通常设置x轴指向东，y轴指向北，z轴竖直向上。z为海平面。</p>
+<p>map的配置文件为map_name.yaml，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">image: /home/ros/Desktop/map-307_std.pgm</div><div class="line">resolution: 0.050000</div><div class="line">origin: [-13.800000, -1.000000, 0.000000]</div><div class="line">negate: 0</div><div class="line">occupied_thresh: 0.65</div><div class="line">free_thresh: 0.196</div></pre></td></tr></table></figure></p>
+<p>image为静态地图路径<br>resolution为地图分辨率，meters/pixel 像素与坐标间的倍数关系<br>origin即为坐标原点<br>occupied_thresh为单元占用概率大于这个阈值则认为完全占用（不可到达）<br>free_thresh单元占用概率小于该值则认为完全自由（可通过）<br>negate黑色/白色占用</p>
 <p>4.earth<br><code>earth</code> 框架用于不同<code>map</code> 框架下多个机器人的交互。如果在多个机器人运行在同一个地图中，可以不需要。如果有多个地图并且机器人之间桥接数据则需要该框架。</p>
 <h3 id="框架间关系"><a href="#框架间关系" class="headerlink" title="框架间关系"></a>框架间关系</h3><p>选择树形结构来表示坐标框架间的关系，每个坐标框架仅有一个父节点，可以有任意个孩子节点。关系如下：</p>
 
