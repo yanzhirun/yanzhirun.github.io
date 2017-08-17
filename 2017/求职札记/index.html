@@ -1,0 +1,969 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.proxy.ustclug.org/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NexT, Blog, yanzhirun, 颜智润" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="求职各类问题准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。 ##OJ平台 输入输出转换问题如果平台不提供输入输出，先把包含的头文件，输入输出语句写好，保证正确的输">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YanZhirun's Blog">
+<meta property="og:url" content="https://yanzhirun.github.io/2017/求职札记/index.html">
+<meta property="og:site_name" content="YanZhirun's Blog">
+<meta property="og:description" content="求职各类问题准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。 ##OJ平台 输入输出转换问题如果平台不提供输入输出，先把包含的头文件，输入输出语句写好，保证正确的输">
+<meta property="og:updated_time" content="2017-08-17T08:40:51.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="YanZhirun's Blog">
+<meta name="twitter:description" content="求职各类问题准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。 ##OJ平台 输入输出转换问题如果平台不提供输入输出，先把包含的头文件，输入输出语句写好，保证正确的输">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '9de29ee13eddc9977c7d0ffea7ec85ca',
+      author: 'yanzhirun'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yanzhirun.github.io/2017/求职札记/"/>
+
+
+
+
+
+  <title>  | YanZhirun's Blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70828510-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">YanZhirun's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">颜智润的博客</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/2017/求职札记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YanZhirun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avator.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="YanZhirun's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="YanZhirun's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-17T16:40:51+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/求职札记/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="求职各类问题"><a href="#求职各类问题" class="headerlink" title="求职各类问题"></a>求职各类问题</h1><p>准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。</p>
+<p>##OJ平台 输入输出转换问题<br>如果平台不提供输入输出，先把包含的头文件，输入输出语句写好，保证正确的输入输出</p>
+<h3 id="cin输入内容保存到vector容器"><a href="#cin输入内容保存到vector容器" class="headerlink" title="cin输入内容保存到vector容器"></a>cin输入内容保存到vector容器</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span> vec;</div><div class="line"><span class="keyword">int</span> num;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">cin</span>&gt;&gt;num;</div><div class="line">	vec.push_back(num);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用迭代器输出vector容器内容"><a href="#使用迭代器输出vector容器内容" class="headerlink" title="使用迭代器输出vector容器内容"></a>使用迭代器输出vector容器内容</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"><span class="keyword">for</span>(it=vec.begin(); it!=vec.end(); ++it)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="数字int字符串string相互转化"><a href="#数字（int）字符串（string）相互转化" class="headerlink" title="数字（int）字符串（string）相互转化"></a>数字（int）字符串（string）相互转化</h3><ol>
+<li><p>C 标准库提供 atoi函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></div><div class="line"><span class="keyword">int</span> iNum;</div><div class="line"><span class="comment">//int 转 string</span></div><div class="line"><span class="built_in">string</span> str = to_string(x);</div><div class="line"><span class="comment">//string 转 int</span></div><div class="line"><span class="keyword">int</span> iChange = itoa(str.c_str());</div></pre></td></tr></table></figure>
+</li>
+<li><p>C++ 标准库 使用stringstream 类型在各种数据类型间转换</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span> </span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">stringstream</span> ss;</div><div class="line"><span class="keyword">int</span> iNum;</div><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="comment">//可是其他类型 char tmp[100]; long long ; float</span></div><div class="line">ss &lt;&lt; iNum;</div><div class="line">ss &gt;&gt; str;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="数字逆置消除前导0"><a href="#数字逆置（消除前导0）" class="headerlink" title="数字逆置（消除前导0）"></a>数字逆置（消除前导0）</h3><p>给定整数X， reverse(X) 将数字按数位翻转，并消除前导0<br>如 X = 123；则reverse(X) = 321;<br>X = 100; 则reverse(X) = 1;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">rev</span> <span class="params">(<span class="keyword">int</span> m)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (m&gt;<span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        t = t*<span class="number">10</span> + m%<span class="number">10</span>;</div><div class="line">        m = m/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h3><h4 id="erase使用"><a href="#erase使用" class="headerlink" title="erase使用"></a>erase使用</h4><h4 id="vector对象高效增长"><a href="#vector对象高效增长" class="headerlink" title="vector对象高效增长"></a>vector对象高效增长</h4><h4 id="范围for语句体内不应该改变vector容量的大小"><a href="#范围for语句体内不应该改变vector容量的大小" class="headerlink" title="范围for语句体内不应该改变vector容量的大小"></a>范围for语句体内不应该改变vector容量的大小</h4><p>参见 c++Primer  9.4   5.4.3</p>
+<h2 id="知识点补充"><a href="#知识点补充" class="headerlink" title="知识点补充"></a>知识点补充</h2><h3 id="cc部分"><a href="#C-C-部分" class="headerlink" title="C/C++部分"></a>C/C++部分</h3><h4 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h4><p>表达式中既有无符号类型，又有有符号类型，有符号类型会转化为无符号类型，会导致计算结果异常。</p>
+<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><ol>
+<li><p>对指针<br>在*左或右决定是值还是地址不可变。</p>
+<blockquote>
+<p>//_pa不可变，pa为地址可修改<br>int const _pa;<br>//pb表示地址不可变，_pb指向的内容可变<br>const int _pb;</p>
+</blockquote>
+</li>
+<li><p>函数声明中修饰形参表示形参为不可变的输入值，在函数中不能改变。</p>
+</li>
+<li>定义常变量时必须同时初始化，不可作为左值。</li>
+<li>作为函数返回值时，表示返回值不可做左值。</li>
+<li>与#define区别： #define 只是字符替换，没有类型安全检查 。</li>
+</ol>
+<h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof()"></a>sizeof()</h4><p>是C语言提供的操作符<br>注意题目中32位（sizeof(p)为4）或者64位(sizeof(p)为8)<br>传参的时候数组退化为指针<br>union联合体取成员的最大长度<br>空类型为1</p>
+<h4 id="qsort-sort"><a href="#qsort-sort" class="headerlink" title="qsort() sort()"></a>qsort() sort()</h4><p>C语言标准库中，stdlib.h头文件包含qsort()算法，是快速排序的标准实现，平均复杂度为$ O(NlogN) $，但是由于可能不当的pivot选择导致最坏情况下复杂度为$ O(N^2) $<br>而sort()集合各种排序算法的优点：</p>
+<ul>
+<li>在数据量很大时采用正常的快速排序，此时效率为O(logN)。</li>
+<li>一旦分段后的数据量小于某个阈值，就改用插入排序，因为此时这个分段是基本有序的，这时效率可达O(N)。</li>
+<li>在递归过程中，如果递归层次过深，分割行为有恶化倾向时，它能够自动侦测出来，使用堆排序来处理，在此情况下，使其效率维持在堆排序的O(N logN)，但这又比一开始使用堆排序好。</li>
+</ul>
+<h5 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h5><p>默认升序排列，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">//降序排列</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a, <span class="keyword">const</span> <span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[<span class="number">10</span>]= &#123;<span class="number">34</span>, <span class="number">3</span>, <span class="number">12</span>, <span class="number">45</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">1</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"> </div><div class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)</div><div class="line">        vec.push_back(arr[i]);</div><div class="line">        </div><div class="line">	sort(vec.begin(), vec.end(), cmp);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"sorted:"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span>(it=vec.begin();it!=vec.end(); ++it)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="虚函数virtual-function虚函数表virtual-table"><a href="#虚函数（Virtual-Function）虚函数表（Virtual-Table）" class="headerlink" title="虚函数（Virtual Function）虚函数表（Virtual Table）"></a>虚函数（Virtual Function）虚函数表（Virtual Table）</h4><h3 id="分布式存储"><a href="#分布式存储" class="headerlink" title="分布式存储"></a>分布式存储</h3><p>####一致性模型<br>数据一致性模型包括以下三种：</p>
+<ol>
+<li>弱一致性(Weak)： 写入一个新值后，读操作在其他副本上不能保证读取到最新值。</li>
+<li>最终一致性(Eventually)： 写入一个新值后，在一个时间窗口后可以读出来。</li>
+<li>强一致性：新数据写入后，在任意时刻的任意一个副本都能读到新值。</li>
+</ol>
+<h4 id="acid特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a><a href="https://zh.wikipedia.org/wiki/ACID" target="_blank" rel="external">ACID特性</a></h4><p>在写入或更新资料的过程中，为保证事务（transaction）是正确可靠的，所必须具备的四个特性：原子性（atomicity，或称不可分割性）、一致性（consistency）、隔离性（isolation，又称独立性）、持久性（durability）。<br>在数据库系统中，一个事务是指：由一系列数据库操作组成的一个完整的逻辑过程。</p>
+<h4 id="cap原理"><a href="#CAP原理" class="headerlink" title="CAP原理"></a><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="external">CAP原理</a></h4><p>一致性（Consistence) （等同于所有节点访问同一份最新的数据副本）<br>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）<br>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</p>
+<p>####NWR模型<br>用于控制一致性级别的策略。将CAP选择权交给用户</p>
+<h4 id="两阶段提交two-phase-commit"><a href="#两阶段提交（Two-Phase-Commit）" class="headerlink" title="两阶段提交（Two Phase Commit）"></a>两阶段提交（Two Phase Commit）</h4><p>第一阶段主控节点询问所有节点是否可以提交操作<br>第二阶段根据执行操作<br>第一阶段投票，第二阶段做决定是否执行的算法<br>2PC 协议用于保证属于多个数据分片上的操作的原子性。这些数据分片可能分布在不同的服务器上，2PC 协议保证多台服务器上的操作要么全部成功，要么全部失败。</p>
+<h4 id="paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h4><p>分布式选举算法<br>Paxos 协议用于保证同一个数据分片的多个副本之间的数据一致性。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/机器人项目/" rel="prev" title="机器人项目">
+                机器人项目 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avator.png"
+               alt="YanZhirun" />
+          <p class="site-author-name" itemprop="name">YanZhirun</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/yanzhirun" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/yanzhirun" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yanzhirun" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/yan-zhi-run" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-laptop"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.linkedin.com/in/%E6%99%BA%E6%B6%A6-%E9%A2%9C-6711a3138/" target="_blank" title="Linkedin">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  Linkedin
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#求职各类问题"><span class="nav-text">求职各类问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cin输入内容保存到vector容器"><span class="nav-text">cin输入内容保存到vector容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用迭代器输出vector容器内容"><span class="nav-text">使用迭代器输出vector容器内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字int字符串string相互转化"><span class="nav-text">数字（int）字符串（string）相互转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字逆置消除前导0"><span class="nav-text">数字逆置（消除前导0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#易错"><span class="nav-text">易错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#erase使用"><span class="nav-text">erase使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector对象高效增长"><span class="nav-text">vector对象高效增长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范围for语句体内不应该改变vector容量的大小"><span class="nav-text">范围for语句体内不应该改变vector容量的大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点补充"><span class="nav-text">知识点补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cc部分"><span class="nav-text">C/C++部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有符号类型和无符号类型"><span class="nav-text">有符号类型和无符号类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const"><span class="nav-text">const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof"><span class="nav-text">sizeof()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qsort-sort"><span class="nav-text">qsort() sort()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚函数virtual-function虚函数表virtual-table"><span class="nav-text">虚函数（Virtual Function）虚函数表（Virtual Table）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式存储"><span class="nav-text">分布式存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#acid特性"><span class="nav-text">ACID特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cap原理"><span class="nav-text">CAP原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两阶段提交two-phase-commit"><span class="nav-text">两阶段提交（Two Phase Commit）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#paxos算法"><span class="nav-text">Paxos算法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YanZhirun</span>
+</span>
+<span id="busuanzi_container_site_pv">
+&nbsp;&nbsp;总访问量<span id="busuanzi_value_site_pv"></span>次
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+  </div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="https://ajax.lug.ustc.edu.cn/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("YItnleUeXyiCfih8u9TFcM5k-gzGzoHsz", "phq8KQLH0y9UBlTkp9r9Sl5A");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+
+</body>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+</html>

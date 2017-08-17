@@ -274,6 +274,183 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/2017/求职札记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="YanZhirun">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avator.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="YanZhirun's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="YanZhirun's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/求职札记/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-17T16:40:51+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/求职札记/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="求职各类问题"><a href="#求职各类问题" class="headerlink" title="求职各类问题"></a>求职各类问题</h1><p>准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。</p>
+<p>##OJ平台 输入输出转换问题<br>如果平台不提供输入输出，先把包含的头文件，输入输出语句写好，保证正确的输入输出</p>
+<h3 id="cin输入内容保存到vector容器"><a href="#cin输入内容保存到vector容器" class="headerlink" title="cin输入内容保存到vector容器"></a>cin输入内容保存到vector容器</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span> vec;</div><div class="line"><span class="keyword">int</span> num;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; ++i)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">cin</span>&gt;&gt;num;</div><div class="line">	vec.push_back(num);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用迭代器输出vector容器内容"><a href="#使用迭代器输出vector容器内容" class="headerlink" title="使用迭代器输出vector容器内容"></a>使用迭代器输出vector容器内容</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"><span class="keyword">for</span>(it=vec.begin(); it!=vec.end(); ++it)</div><div class="line">&#123;</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="数字int字符串string相互转化"><a href="#数字（int）字符串（string）相互转化" class="headerlink" title="数字（int）字符串（string）相互转化"></a>数字（int）字符串（string）相互转化</h3><ol>
+<li><p>C 标准库提供 atoi函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></div><div class="line"><span class="keyword">int</span> iNum;</div><div class="line"><span class="comment">//int 转 string</span></div><div class="line"><span class="built_in">string</span> str = to_string(x);</div><div class="line"><span class="comment">//string 转 int</span></div><div class="line"><span class="keyword">int</span> iChange = itoa(str.c_str());</div></pre></td></tr></table></figure>
+</li>
+<li><p>C++ 标准库 使用stringstream 类型在各种数据类型间转换</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span> </span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">stringstream</span> ss;</div><div class="line"><span class="keyword">int</span> iNum;</div><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="comment">//可是其他类型 char tmp[100]; long long ; float</span></div><div class="line">ss &lt;&lt; iNum;</div><div class="line">ss &gt;&gt; str;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="数字逆置消除前导0"><a href="#数字逆置（消除前导0）" class="headerlink" title="数字逆置（消除前导0）"></a>数字逆置（消除前导0）</h3><p>给定整数X， reverse(X) 将数字按数位翻转，并消除前导0<br>如 X = 123；则reverse(X) = 321;<br>X = 100; 则reverse(X) = 1;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">rev</span> <span class="params">(<span class="keyword">int</span> m)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (m&gt;<span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        t = t*<span class="number">10</span> + m%<span class="number">10</span>;</div><div class="line">        m = m/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h3><h4 id="erase使用"><a href="#erase使用" class="headerlink" title="erase使用"></a>erase使用</h4><h4 id="vector对象高效增长"><a href="#vector对象高效增长" class="headerlink" title="vector对象高效增长"></a>vector对象高效增长</h4><h4 id="范围for语句体内不应该改变vector容量的大小"><a href="#范围for语句体内不应该改变vector容量的大小" class="headerlink" title="范围for语句体内不应该改变vector容量的大小"></a>范围for语句体内不应该改变vector容量的大小</h4><p>参见 c++Primer  9.4   5.4.3</p>
+<h2 id="知识点补充"><a href="#知识点补充" class="headerlink" title="知识点补充"></a>知识点补充</h2><h3 id="cc部分"><a href="#C-C-部分" class="headerlink" title="C/C++部分"></a>C/C++部分</h3><h4 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h4><p>表达式中既有无符号类型，又有有符号类型，有符号类型会转化为无符号类型，会导致计算结果异常。</p>
+<h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><ol>
+<li><p>对指针<br>在*左或右决定是值还是地址不可变。</p>
+<blockquote>
+<p>//_pa不可变，pa为地址可修改<br>int const _pa;<br>//pb表示地址不可变，_pb指向的内容可变<br>const int _pb;</p>
+</blockquote>
+</li>
+<li><p>函数声明中修饰形参表示形参为不可变的输入值，在函数中不能改变。</p>
+</li>
+<li>定义常变量时必须同时初始化，不可作为左值。</li>
+<li>作为函数返回值时，表示返回值不可做左值。</li>
+<li>与#define区别： #define 只是字符替换，没有类型安全检查 。</li>
+</ol>
+<h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof()"></a>sizeof()</h4><p>是C语言提供的操作符<br>注意题目中32位（sizeof(p)为4）或者64位(sizeof(p)为8)<br>传参的时候数组退化为指针<br>union联合体取成员的最大长度<br>空类型为1</p>
+<h4 id="qsort-sort"><a href="#qsort-sort" class="headerlink" title="qsort() sort()"></a>qsort() sort()</h4><p>C语言标准库中，stdlib.h头文件包含qsort()算法，是快速排序的标准实现，平均复杂度为$ O(NlogN) $，但是由于可能不当的pivot选择导致最坏情况下复杂度为$ O(N^2) $<br>而sort()集合各种排序算法的优点：</p>
+<ul>
+<li>在数据量很大时采用正常的快速排序，此时效率为O(logN)。</li>
+<li>一旦分段后的数据量小于某个阈值，就改用插入排序，因为此时这个分段是基本有序的，这时效率可达O(N)。</li>
+<li>在递归过程中，如果递归层次过深，分割行为有恶化倾向时，它能够自动侦测出来，使用堆排序来处理，在此情况下，使其效率维持在堆排序的O(N logN)，但这又比一开始使用堆排序好。</li>
+</ul>
+<h5 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h5><p>默认升序排列，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">//降序排列</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a, <span class="keyword">const</span> <span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[<span class="number">10</span>]= &#123;<span class="number">34</span>, <span class="number">3</span>, <span class="number">12</span>, <span class="number">45</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">1</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"> </div><div class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)</div><div class="line">        vec.push_back(arr[i]);</div><div class="line">        </div><div class="line">	sort(vec.begin(), vec.end(), cmp);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"sorted:"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span>(it=vec.begin();it!=vec.end(); ++it)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="虚函数virtual-function虚函数表virtual-table"><a href="#虚函数（Virtual-Function）虚函数表（Virtual-Table）" class="headerlink" title="虚函数（Virtual Function）虚函数表（Virtual Table）"></a>虚函数（Virtual Function）虚函数表（Virtual Table）</h4><h3 id="分布式存储"><a href="#分布式存储" class="headerlink" title="分布式存储"></a>分布式存储</h3><p>####一致性模型<br>数据一致性模型包括以下三种：</p>
+<ol>
+<li>弱一致性(Weak)： 写入一个新值后，读操作在其他副本上不能保证读取到最新值。</li>
+<li>最终一致性(Eventually)： 写入一个新值后，在一个时间窗口后可以读出来。</li>
+<li>强一致性：新数据写入后，在任意时刻的任意一个副本都能读到新值。</li>
+</ol>
+<h4 id="acid特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a><a href="https://zh.wikipedia.org/wiki/ACID" target="_blank" rel="external">ACID特性</a></h4><p>在写入或更新资料的过程中，为保证事务（transaction）是正确可靠的，所必须具备的四个特性：原子性（atomicity，或称不可分割性）、一致性（consistency）、隔离性（isolation，又称独立性）、持久性（durability）。<br>在数据库系统中，一个事务是指：由一系列数据库操作组成的一个完整的逻辑过程。</p>
+<h4 id="cap原理"><a href="#CAP原理" class="headerlink" title="CAP原理"></a><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="external">CAP原理</a></h4><p>一致性（Consistence) （等同于所有节点访问同一份最新的数据副本）<br>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）<br>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</p>
+<p>####NWR模型<br>用于控制一致性级别的策略。将CAP选择权交给用户</p>
+<h4 id="两阶段提交two-phase-commit"><a href="#两阶段提交（Two-Phase-Commit）" class="headerlink" title="两阶段提交（Two Phase Commit）"></a>两阶段提交（Two Phase Commit）</h4><p>第一阶段主控节点询问所有节点是否可以提交操作<br>第二阶段根据执行操作<br>第一阶段投票，第二阶段做决定是否执行的算法<br>2PC 协议用于保证属于多个数据分片上的操作的原子性。这些数据分片可能分布在不同的服务器上，2PC 协议保证多台服务器上的操作要么全部成功，要么全部失败。</p>
+<h4 id="paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h4><p>分布式选举算法<br>Paxos 协议用于保证同一个数据分片的多个副本之间的数据一致性。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/2017/机器人项目/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -898,164 +1075,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://yanzhirun.github.io/2017/hexo使用与踩坑/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="YanZhirun">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avator.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="YanZhirun's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="YanZhirun's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/hexo使用与踩坑/" itemprop="url">
-                  hexo使用与踩坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-16T13:25:16+08:00">
-                2017-02-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/小结/" itemprop="url" rel="index">
-                    <span itemprop="name">小结</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/hexo使用与踩坑/" class="leancloud_visitors" data-flag-title="hexo使用与踩坑">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>根据使用过程中遇到的问题以及需求，记录相应解决方案，包括基本使用命令，推广等。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/hexo使用与踩坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1103,7 +1122,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
