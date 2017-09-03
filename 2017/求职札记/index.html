@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="YanZhirun's Blog">
 <meta property="og:description" content="准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。">
 <meta property="og:image" content="https://yanzhirun.github.io/2017/求职札记/求职札记/sort.png">
-<meta property="og:updated_time" content="2017-08-21T12:40:10.645Z">
+<meta property="og:updated_time" content="2017-09-03T15:06:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="求职札记">
 <meta name="twitter:description" content="准备求职过程中遇到的各种问题记录在此，以防遗忘，亦是便于复习。面向的目标职位包括c++开发工程师，Linux内核工程师，分布式存储工程师等。以下内容包括但不限于OJ平台刷题的问题，对相应职位要求的知识补充，以往面经答案总结等，是对自己知识的汇总，不足之处，希望及时指出或与我交流讨论。">
@@ -399,6 +399,9 @@
 <li><p>C++ 标准库 使用stringstream 类型在各种数据类型间转换</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span> </span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">stringstream</span> ss;</div><div class="line"><span class="keyword">int</span> iNum;</div><div class="line"><span class="built_in">string</span> str;</div><div class="line"><span class="comment">//可是其他类型 char tmp[100]; long long ; float</span></div><div class="line">ss &lt;&lt; iNum;</div><div class="line">ss &gt;&gt; str;</div></pre></td></tr></table></figure>
 </li>
+<li><p>C语言</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,atoi(argv[<span class="number">1</span>]));</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="数字逆置消除前导0"><a href="#数字逆置（消除前导0）" class="headerlink" title="数字逆置（消除前导0）"></a>数字逆置（消除前导0）</h3><p>给定整数X， reverse(X) 将数字按数位翻转，并消除前导0<br>如 X = 123；则reverse(X) = 321;<br>X = 100; 则reverse(X) = 1;<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">rev</span> <span class="params">(<span class="keyword">int</span> m)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (m&gt;<span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        t = t*<span class="number">10</span> + m%<span class="number">10</span>;</div><div class="line">        m = m/<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h3><h4 id="erase使用"><a href="#erase使用" class="headerlink" title="erase使用"></a>erase使用</h4><h4 id="vector对象高效增长"><a href="#vector对象高效增长" class="headerlink" title="vector对象高效增长"></a>vector对象高效增长</h4><h4 id="范围for语句体内不应该改变vector容量的大小"><a href="#范围for语句体内不应该改变vector容量的大小" class="headerlink" title="范围for语句体内不应该改变vector容量的大小"></a>范围for语句体内不应该改变vector容量的大小</h4><p>参见 c++Primer  9.4   5.4.3</p>
@@ -408,7 +411,18 @@
 <h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>选择pivot</p>
 <h4 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h4><p>把序列递归地分成短序列，出口时短序列只有一个元素（直接有序），或者只有两个（一次比较和交换），然后合并成长序列。</p>
 <h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><p>低位先排序，然后收集，再按照高位排序，然后再收集；直到最高位</p>
-<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><h3 id="cc部分"><a href="#C-C-部分" class="headerlink" title="C/C++部分"></a>C/C++部分</h3><h4 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h4><p>表达式中既有无符号类型，又有有符号类型，有符号类型会转化为无符号类型，会导致计算结果异常。</p>
+<h4 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h4><h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><h3 id="cc部分"><a href="#C-C-部分" class="headerlink" title="C/C++部分"></a>C/C++部分</h3><h4 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h4><p>static_cast: 子类转基类（安全），基本类型之间转换。如int 转double，任意类型转void*</p>
+<blockquote>
+<p>int n =6;<br>double d = static_cast<double>(n); // 基本类型转换<br>int_pn =&n;<br>double_d = static_cast<double*>(&amp;n) //无关类型指针转换，编译错误<br>void_p = static_cast&lt;void_&gt;(pn); //任意类型转换成void类型</double*></double></p>
+</blockquote>
+<p>const_cast: 消除对象的强制属性 ，去掉const或者 volatile关键字，const 常量变为可变的</p>
+<p>dynamic_cast:子类转父类安全，父类转子类（返回NULL）<br>reinterpret_cast:不同类型的指针类型转换</p>
+<h4 id="面向对象特征"><a href="#面向对象特征" class="headerlink" title="面向对象特征"></a>面向对象特征</h4><p>封装 继承 多态</p>
+<h4 id="函数的指针参数"><a href="#函数的指针参数" class="headerlink" title="函数的指针参数"></a>函数的指针参数</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> i=<span class="number">0x01</span>;  </div><div class="line">    <span class="keyword">int</span> *p=&amp;i;  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"&amp;i = %x/n"</span>,&amp;i);   <span class="comment">//i的地址  </span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"p = %x/n"</span>,p);  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"*p = %x/n"</span>,*p);  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"&amp;p = %x/n"</span>,&amp;p);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>指针占4Byte，存放所指向的数据的地址；<br>p是一个指向int型变量i 的指针，所以p表示该指针的内容，即i的地址；<br>*p表示p指向的内容，即i；<br>&amp;p代表指针p本身的地址。</p>
+<p>让p指向函数f中的静态变量<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> **p)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">5</span>;  </div><div class="line">    *p=&amp;i;  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;  </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span>  </span></div><div class="line">&#123;  </div><div class="line">    <span class="keyword">int</span> i=<span class="number">0x01</span>;  </div><div class="line">    <span class="keyword">int</span> *p=&amp;i;  </div><div class="line">    f(&amp;p);  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"p = %d/n"</span>,*p);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="函数模版"><a href="#函数模版" class="headerlink" title="函数模版"></a>函数模版</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;  <span class="comment">//定义模版标识</span></div><div class="line"><span class="function">T <span class="title">Add</span><span class="params">(T a, T b)</span>    <span class="comment">//函数原型</span></span></div><div class="line">&#123;</div><div class="line">    T result;</div><div class="line">    result = a + b;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"2+3= "</span>&lt;&lt;Add(<span class="number">2</span>,<span class="number">3</span>)&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"sdf+123= "</span>&lt;&lt;Add(<span class="built_in">string</span>(<span class="string">"sdf"</span>), <span class="built_in">string</span>(<span class="string">"123"</span>))&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="有符号类型和无符号类型"><a href="#有符号类型和无符号类型" class="headerlink" title="有符号类型和无符号类型"></a>有符号类型和无符号类型</h4><p>表达式中既有无符号类型，又有有符号类型，有符号类型会转化为无符号类型，会导致计算结果异常。</p>
 <h4 id="const"><a href="#const" class="headerlink" title="const"></a>const</h4><ol>
 <li><p>对指针<br>在*左或右决定是值还是地址不可变。</p>
 <blockquote>
@@ -421,17 +435,8 @@
 <li>作为函数返回值时，表示返回值不可做左值。</li>
 <li>与#define区别： #define 只是字符替换，没有类型安全检查 。</li>
 </ol>
-<h4 id="引用和指针"><a href="#引用和指针" class="headerlink" title="引用和指针"></a>引用和指针</h4><p>都是地址的概念，引用时一个内存对象的别名，指针指向一个内存对象，保存这个对象的内存地址。<br>区别：</p>
-<pre><code>1. 引用不能为空，不存在对空对象的引用；指针可以为空，可以指向空对象。
-2. 引用必须初始化，指定对某个对象的引用；指针不需要。
-3. 引用初始化后不能改变；指针可以改变所指对象的值。
-4. 引用访问对象时直接访问；指针访问对象是间接访问。
-5. 引用的大小时所引用对象的大小；指针是指针本身的大小4字节（32位）。
-</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
-<pre><code>6. 引用没有const；指针有const。
-7. 引用和指针的++自增运算符意义不同。
-8. 引用不需要分配内存空间，指针需要。
-</code></pre><h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof()"></a>sizeof()</h4><p>是C语言提供的操作符<br>注意题目中32位（sizeof(p)为4）或者64位(sizeof(p)为8)<br>传参的时候数组退化为指针<br>union联合体取成员的最大长度<br>空类型为1</p>
+<h4 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof()"></a>sizeof()</h4><p>是C语言提供的操作符（不是函数），返回unsigned int 的值<br>注意题目中32位（sizeof(p)为4）或者64位(sizeof(p)为8)<br>传参的时候数组退化为指针<br>union联合体取成员的最大长度<br>空类型为1<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//输出为空，i=-1 会转化为sizeof的值很多的正整数。不满足 &lt;=NUM-2的条件，故不会输出</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> NUM (sizeof(arr) / sizeof(arr[0]))</span></div><div class="line"><span class="keyword">int</span> arr[] = &#123; <span class="number">1</span>， <span class="number">2</span>， <span class="number">3</span>， <span class="number">4</span>， <span class="number">5</span>， <span class="number">6</span>， <span class="number">7</span> &#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span>( i = <span class="number">-1</span>; i &lt;= ( NUM - <span class="number">2</span> ); i++)</div><div class="line">	   <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,arr[i+<span class="number">1</span>]);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//输出为i: 0 理解编译器编译原理，sizeof仅仅是操作符，最终i++并没有执行。</span></div><div class="line"><span class="comment">////warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘long unsigned int’ [-Wformat=]</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;  </div><div class="line">    i = <span class="number">10</span>;</div><div class="line">	</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"i : %d\n"</span>,i);  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"sizeof(i++) is: %d\n"</span>,<span class="keyword">sizeof</span>(i++));  </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"i : %d\n"</span>,i);</div><div class="line">	</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="qsort-sort"><a href="#qsort-sort" class="headerlink" title="qsort() sort()"></a>qsort() sort()</h4><p>C语言标准库中，stdlib.h头文件包含qsort()算法，是快速排序的标准实现，平均复杂度为$ O(NlogN) $，但是由于可能不当的pivot选择导致最坏情况下复杂度为$ O(N^2) $<br>而sort()集合各种排序算法的优点：</p>
 <ul>
 <li>在数据量很大时采用正常的快速排序，此时效率为O(logN)。</li>
@@ -439,17 +444,202 @@
 <li>在递归过程中，如果递归层次过深，分割行为有恶化倾向时，它能够自动侦测出来，使用堆排序来处理，在此情况下，使其效率维持在堆排序的O(N logN)，但这又比一开始使用堆排序好。</li>
 </ul>
 <h5 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h5><p>默认升序排列，<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">//降序排列</span></div><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> &amp;a, <span class="keyword">const</span> <span class="keyword">int</span> &amp;b)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> a&gt;b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> arr[<span class="number">10</span>]= &#123;<span class="number">34</span>, <span class="number">3</span>, <span class="number">12</span>, <span class="number">45</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">9</span>, <span class="number">1</span>&#125;;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"> </div><div class="line"> <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;++i)</div><div class="line">        vec.push_back(arr[i]);</div><div class="line">        </div><div class="line">	sort(vec.begin(), vec.end(), cmp);</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"sorted:"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">for</span>(it=vec.begin();it!=vec.end(); ++it)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*it&lt;&lt;<span class="string">" "</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="虚函数virtual-function虚函数表virtual-table"><a href="#虚函数（Virtual-Function）虚函数表（Virtual-Table）" class="headerlink" title="虚函数（Virtual Function）虚函数表（Virtual Table）"></a>虚函数（Virtual Function）虚函数表（Virtual Table）</h4><h3 id="分布式存储"><a href="#分布式存储" class="headerlink" title="分布式存储"></a>分布式存储</h3><p>####一致性模型<br>数据一致性模型包括以下三种：</p>
+<h4 id="堆栈空间"><a href="#堆栈空间" class="headerlink" title="堆栈空间"></a>堆栈空间</h4><p>堆是共有的空间，全局堆是所有没有分配的空间，局部堆是用户分配的空间，一般有程序员分配释放，程序结束时可能有OS回收<br>栈时线程独有的，保存运行状态和局部自动变量。每个线程的栈相互独立。</p>
+<h4 id="动态分配与释放空间"><a href="#动态分配与释放空间" class="headerlink" title="动态分配与释放空间"></a>动态分配与释放空间</h4><ul>
+<li>malloc() 函数用来动态的分配内存空间</li>
+<li>calloc() 函数用来动态地分配内存空间并初始化为 0</li>
+<li>realloc() 函数用来重新分配内存空间</li>
+</ul>
+<ol>
+<li>malloc 从堆中获得空间。</li>
+<li>申请的实际空间要大于请求的空间。超出部分用来记录堆这块内存的管理信息</li>
+<li>包含头文件 #include <stdlib.h></stdlib.h></li>
+<li>free() 只能释放动态分配的内存空间，并不能释放任意的内存。</li>
+<li>如果 ptr 所指向的内存空间不是由上面的三个函数所分配的，或者已被释放，那么调用 free() 会有无法预知的情况发生。</li>
+<li>如果 ptr 为 NULL，那么 free() 不会有任何作用。</li>
+</ol>
+<p>注意事项：</p>
+<ol>
+<li>申请后需要检查是否分配成功</li>
+<li>不使用的时候要释放</li>
+<li>释放后吧指针指向NULL，防止后面的程序使用</li>
+<li>分配与释放要配对</li>
+<li>不能对非动态申请的内存free</li>
+<li>只能free一次，多次会报错</li>
+<li>free空指针等于没有做，多次释放也不会报错</li>
+<li>分配的时候最好加上强制类型转换</li>
+</ol>
+<blockquote>
+<p>char _ptr = (char _)malloc(10*sizeof(char));<br>{<br>//…<br>}<br>free(ptr);<br>prt = NULL;</p>
+</blockquote>
+<p>ps：malloc 与new 区别<br>new 操作符， malloc是函数<br>new从<strong>自由存储区（free store）</strong>上分配空间，malloc 从<strong>堆</strong>上分配<br>new分配成功，返回的是对象类型的指针，类型严格与对象匹配，无需类型转换，是类型安全的操作符；malloc分配成功返回void_ ，需要通过强制类型转换将void_ 转换为所需要的类型。<br>malloc分配失败返回NULL，C习惯在分配后添加判断</p>
+<blockquote>
+<p>int _a = (int_)malloc(sizeof(int));<br>if( NULL == a)<br>{…}<br>else<br>{…}</p>
+</blockquote>
+<p>new不会返回NULL，应该使用异常机制。</p>
+<blockquote>
+<p>try<br>{<br>   int *a = new int();<br>}<br>catch(bad_alloc)<br>{…}</p>
+</blockquote>
+<p>区别表格：</p>
+<table>
+<thead>
+<tr>
+<th>特征</th>
+<th>new/delete</th>
+<th>malloc/free</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分配内存位置</td>
+<td>自由存储区</td>
+<td>堆</td>
+</tr>
+<tr>
+<td>内存分配成功返回值</td>
+<td>完整类型指针</td>
+<td>void*</td>
+</tr>
+<tr>
+<td>内存分配失败返回值</td>
+<td>默认抛出异常</td>
+<td>返回NULL</td>
+</tr>
+<tr>
+<td>分配内存大小</td>
+<td>由编译器根据类型计算得出</td>
+<td>必须显式指定</td>
+</tr>
+<tr>
+<td>处理数组</td>
+<td>new[]</td>
+<td>需要用户计算数组大小后进行内存分配</td>
+</tr>
+<tr>
+<td>已分配内存的扩充</td>
+<td>无法直观处理</td>
+<td>使用realloc</td>
+</tr>
+<tr>
+<td>分配时内存不足</td>
+<td>指定处理函数或者重新制定分配器</td>
+<td>无法通过用户代码进行处理</td>
+</tr>
+<tr>
+<td>函数重载</td>
+<td>允许</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td>构造函数与析构函数</td>
+<td>调用</td>
+<td>不调用</td>
+</tr>
+</tbody>
+</table>
+<h4 id="构造函数与析构函数"><a href="#构造函数与析构函数" class="headerlink" title="构造函数与析构函数"></a>构造函数与析构函数</h4><p><strong>能否在构造函数析构函数中抛出异常：</strong><br>构造函数中尽量不要抛出异常，能避免的就避免，如果必须，要考虑不要内存泄露！<br>c++不禁止西沟函数抛出异常，但会导致程序过早结束或出现不明确行为</p>
+<ol>
+<li>构造函数中抛出异常，会导致析构函数不能被调用，但对象本身已申请到的内存资源会被系统释放（已申请到资源的内部成员变量会被系统依次逆序调用其析构函数）。</li>
+<li>因为析构函数不能被调用，所以可能会造成内存泄露或系统资源未被释放。</li>
+<li>构造函数中可以抛出异常，但必须保证在构造函数抛出异常之前，把系统资源释放掉，防止内存泄露。（如何保证？？？使用auto_ptr？？？</li>
+</ol>
+<p><strong>是否可是虚函数 </strong><br>构造函数不可以，要构造一个对象，必须知道要构造什么<br>析构函数可以是虚函数，也可以是纯虚函数。</p>
+<h4 id="哈希函数-构造-冲突处理"><a href="#哈希函数-构造-冲突处理" class="headerlink" title="哈希函数 构造 冲突处理"></a>哈希函数 构造 冲突处理</h4><p>构造：</p>
+<ol>
+<li>数字分析</li>
+<li>平方取中</li>
+<li>除留取余</li>
+<li>分段叠加</li>
+</ol>
+<p>处理冲突：<br>1.开放地址（线性探测再散列、二次探测再散列、伪随机探测再散列）<br>2.链地址<br>3.再哈希法<br>4.建立公共溢出区</p>
+<h4 id="虚函数virtual-function虚函数表virtual-table"><a href="#虚函数（Virtual-Function）虚函数表（Virtual-Table）" class="headerlink" title="虚函数（Virtual Function）虚函数表（Virtual Table）"></a>虚函数（Virtual Function）虚函数表（Virtual Table）</h4><h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><p>是指两个或两个以上的进程在执行过程中，因争夺资源而造成的一种相互等待的现象，若无外力作用，它们都将无法推进下去。<br>死锁的四个必要条件：</p>
+<ol>
+<li>互斥条件：一个资源每次只能被一个进程使用。</li>
+<li>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</li>
+<li>不可剥夺条件：进程已获得的资源，在未使用完之前，不能强行剥夺。</li>
+<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</li>
+</ol>
+<h2 id="分布式存储"><a href="#分布式存储" class="headerlink" title="分布式存储"></a>分布式存储</h2><h3 id="流行云计算分布式存储系统"><a href="#流行云计算分布式存储系统" class="headerlink" title="流行云计算分布式存储系统"></a>流行云计算分布式存储系统</h3><p>Google的GFS 和Hadoop</p>
+<h3 id="一致性模型"><a href="#一致性模型" class="headerlink" title="一致性模型"></a>一致性模型</h3><p>数据一致性模型包括以下三种：</p>
 <ol>
 <li>弱一致性(Weak)： 写入一个新值后，读操作在其他副本上不能保证读取到最新值。</li>
 <li>最终一致性(Eventually)： 写入一个新值后，在一个时间窗口后可以读出来。</li>
 <li>强一致性：新数据写入后，在任意时刻的任意一个副本都能读到新值。</li>
 </ol>
-<h4 id="acid特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a><a href="https://zh.wikipedia.org/wiki/ACID" target="_blank" rel="external">ACID特性</a></h4><p>在写入或更新资料的过程中，为保证事务（transaction）是正确可靠的，所必须具备的四个特性：原子性（atomicity，或称不可分割性）、一致性（consistency）、隔离性（isolation，又称独立性）、持久性（durability）。<br>在数据库系统中，一个事务是指：由一系列数据库操作组成的一个完整的逻辑过程。</p>
-<h4 id="cap原理"><a href="#CAP原理" class="headerlink" title="CAP原理"></a><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="external">CAP原理</a></h4><p>一致性（Consistence) （等同于所有节点访问同一份最新的数据副本）<br>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）<br>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</p>
-<p>####NWR模型<br>用于控制一致性级别的策略。将CAP选择权交给用户</p>
-<h4 id="两阶段提交two-phase-commit"><a href="#两阶段提交（Two-Phase-Commit）" class="headerlink" title="两阶段提交（Two Phase Commit）"></a>两阶段提交（Two Phase Commit）</h4><p>第一阶段主控节点询问所有节点是否可以提交操作<br>第二阶段根据执行操作<br>第一阶段投票，第二阶段做决定是否执行的算法<br>2PC 协议用于保证属于多个数据分片上的操作的原子性。这些数据分片可能分布在不同的服务器上，2PC 协议保证多台服务器上的操作要么全部成功，要么全部失败。</p>
-<h4 id="paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h4><p>分布式选举算法<br>Paxos 协议用于保证同一个数据分片的多个副本之间的数据一致性。</p>
+<h3 id="acid特性"><a href="#ACID特性" class="headerlink" title="ACID特性"></a><a href="https://zh.wikipedia.org/wiki/ACID" target="_blank" rel="external">ACID特性</a></h3><p>在写入或更新资料的过程中，为保证事务（transaction）是正确可靠的，所必须具备的四个特性：原子性（atomicity，或称不可分割性）、一致性（consistency）、隔离性（isolation，又称独立性）、持久性（durability）。<br>在数据库系统中，一个事务是指：由一系列数据库操作组成的一个完整的逻辑过程。</p>
+<h3 id="cap原理"><a href="#CAP原理" class="headerlink" title="CAP原理"></a><a href="https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86" target="_blank" rel="external">CAP原理</a></h3><p>一致性（Consistence) （等同于所有节点访问同一份最新的数据副本）<br>可用性（Availability）（每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据）<br>分区容错性（Network partitioning）（以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择[3]。）</p>
+<h3 id="nwr模型"><a href="#NWR模型" class="headerlink" title="NWR模型"></a>NWR模型</h3><p>用于控制一致性级别的策略。将CAP选择权交给用户</p>
+<h3 id="两阶段提交two-phase-commit"><a href="#两阶段提交（Two-Phase-Commit）" class="headerlink" title="两阶段提交（Two Phase Commit）"></a>两阶段提交（Two Phase Commit）</h3><p>第一阶段主控节点询问所有节点是否可以提交操作<br>第二阶段根据执行操作<br>第一阶段投票，第二阶段做决定是否执行的算法<br>2PC 协议用于保证属于多个数据分片上的操作的原子性。这些数据分片可能分布在不同的服务器上，2PC 协议保证多台服务器上的操作要么全部成功，要么全部失败。</p>
+<h3 id="paxos算法"><a href="#Paxos算法" class="headerlink" title="Paxos算法"></a>Paxos算法</h3><p>分布式选举算法<br>Paxos 协议用于保证同一个数据分片的多个副本之间的数据一致性。</p>
+<h3 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h3><p>从技术上讲，虚拟化是一种在软件中仿真计算机硬件，以虚拟资源为用户提供服务的计算形式。旨在合理调配计算机资源，使其更高效地提供服务。它把系统各硬件之间的物理划分打破，从而实现架构的动态化，实现物理资源的集中管理和使用。虚拟化的最大好处是增强系统的弹性和灵活性，降低成本、改进服务、提高资源利用率。<br>从表现形式上看，分为两种应用模式。一种是讲一台性能强大的服务器虚拟成多个独立的小服务器。二是讲多个服务器虚拟成一个强大的服务器。<br>CPU虚拟化技术：Intel的VT-x，AMD的AMD-V<br>虚拟化软件：VMWare、微软的Hyper-V、思杰的Xen、KVM、OpenVZ等</p>
+<h2 id="linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="linux-相关问题以及个人遇到问题"><a href="#Linux-相关问题，以及个人遇到问题" class="headerlink" title="Linux 相关问题，以及个人遇到问题"></a>Linux 相关问题，以及个人遇到问题</h3><ol>
+<li><p>dpkg 安装文件出错<br>可能是因为机器为64位，缺少支持32位架构</p>
+<blockquote>
+<p>sudo dpkg –add-architecture i386<br>sudo apt-get -f -y install</p>
+</blockquote>
+</li>
+<li><p>英文版无法安装中文输入法<br>安装fcitx框架注销用户等</p>
+</li>
+</ol>
+<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><ul>
+<li>管道（pipe），有名管道（FIFO）</li>
+<li>信号（signal）</li>
+<li>消息队列</li>
+<li>共享内存</li>
+<li>信号量</li>
+<li>套接字（socket）<br>管道是半双工的，数据仅能单向流动；只能用于父子进程或兄弟进程间</li>
+</ul>
+<h3 id="osi网络模型"><a href="#OSI网络模型" class="headerlink" title="OSI网络模型"></a>OSI网络模型</h3><p>OSI（Open System Interconnection，开放系统互联）<br>| 层 | 网络协议 |<br>|——–|——–|<br>| 应用层       |        |</p>
+<p>###TCP/IP<br>TCP (Transmission Control Protocol)和UDP(User Datagram Protocol)协议属于传输层协议。<br>其中TCP提供IP环境下的数据可靠传输，它提供的服务包括数据流传送、可靠性、有效流控、全双工操作和多路复用。通过面向连接、端到端和可靠的数据包发送。通俗说，它是事先为所发送的数据开辟出连接好的通道，然后再进行数据发送；而UDP则不为IP提供可靠性、流控或差错恢复功能。<br>一般来说，TCP对应的是可靠性要求高的应用，而UDP对应的则是可靠性要求低、传输经济的应用。</p>
+<p>TCP： Telnet、FTP、SMTP<br>UDP： NFS、SNMP、DNS、TFTP</p>
+<h4 id="tcp的3次握手"><a href="#TCP的3次握手" class="headerlink" title="TCP的3次握手"></a>TCP的3次握手</h4><ol>
+<li>（A-&gt;B）客户端A向服务器端主机B发送一个包含SYN（Synchronize）标志的TCP报文，SYN同步报文会指明客户端使用的端口以及TCP连接的初始序号；</li>
+<li>（B-&gt;A）：主机B在收到客户端的SYN报文后，将返回一个SYN+ACK(Acknowledgement)的报文，表示接受请求，同时TCP序号加一；</li>
+<li>（A-&gt;B）：主机A返回一个确认报文ACK给服务器端，同样TCP序号加一，完成一个TCP连接。</li>
+</ol>
+<h4 id="http常见状态码"><a href="#http常见状态码" class="headerlink" title="http常见状态码"></a>http常见状态码</h4><p>1开头 临时响应，需要继续执行其他操作<br>2开头 重稿处理请求<br>3开头  重定向，表示要完成请求需要进一步操作<br>4开头 请求错误<br>    400 服务器不理解<br>    403 服务器拒绝请求<br>    404 未找到网页<br>5开头 服务器错误<br>    500 服务器错误</p>
+<h4 id="socket-编程"><a href="#socket-编程" class="headerlink" title="socket 编程"></a>socket 编程</h4><p>常见socket类型：</p>
+<ol>
+<li>流式套接字（SOCK_STREAM）</li>
+<li>数据报套接字（SOCK_DGRAM）</li>
+<li>原始套接字（SOCK_RAW）</li>
+</ol>
+<h4 id="大端模式小端模式判断"><a href="#大端模式小端模式判断" class="headerlink" title="大端模式小端模式判断"></a>大端模式小端模式判断</h4><p>小端（低地址存放低位）<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i = <span class="number">1</span>;   </div><div class="line">   <span class="keyword">char</span> *p = (<span class="keyword">char</span> *)&amp;i;   </div><div class="line">   <span class="keyword">if</span>(*p == <span class="number">1</span>)     </div><div class="line">         <span class="built_in">printf</span>(<span class="string">"Little Endian"</span>); </div><div class="line">   <span class="keyword">else</span></div><div class="line">         <span class="built_in">printf</span>(<span class="string">"Big Endian"</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="数据存储优先顺序"><a href="#数据存储优先顺序：" class="headerlink" title="数据存储优先顺序："></a>数据存储优先顺序：</h4><p>Internet数据以高位字节优先（大端模式）在网络上传输，PC通常采用小端（低位字节优先）<br>htons() ntohs() htonl() ntohl()<br>h: host<br>n: network<br>s: short（16位IP端口号）<br>l: long （IP地址）</p>
+<h4 id="io多路复用解决方法"><a href="#I-O多路复用解决方法" class="headerlink" title="I/O多路复用解决方法"></a>I/O多路复用解决方法</h4><ul>
+<li>非阻塞</li>
+<li>异步处理（fcntl()）</li>
+<li>多路复用处理（select() 或 poll()）</li>
+<li>多线程编程</li>
+</ul>
+<h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><p>Linux内存管理的基本思想之一，是只有在真正访问一个地址的时候才建立这个地址的物理映射。</p>
+<h3 id="shell统计文本中单词出现次数"><a href="#shell统计文本中单词出现次数" class="headerlink" title="shell统计文本中单词出现次数"></a>shell统计文本中单词出现次数</h3><p>脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#！/bin/bash</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="_">-eq</span> 0 ]</div><div class="line"><span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> args error"</span></div><div class="line"><span class="built_in">exit</span> 0</div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -ge 2 ]</div><div class="line"><span class="keyword">then</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"analyse the first file <span class="variable">$1</span>"</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"></div><div class="line">filename = <span class="variable">$1</span></div><div class="line">grep -E -o <span class="string">"\b[[:alpha:]]+\b"</span>  <span class="variable">$filename</span> | awk <span class="string">' &#123; count[$0]++ &#125; END&#123;printf("%-20s%s\n","Word","Count");</span></div><div class="line">for(word in count)</div><div class="line">&#123; printf ("%-20s%s\n",word,count[word] ) &#125; &#125;'</div></pre></td></tr></table></figure></p>
+<p>[[:alpha:]] 代表字母<br>[[:alnum:]] 代表字母和数字字符<br>[a-zA-Z0-9] 代表单个字母和数字字符</p>
+<h3 id="ps-按进程消耗内存多少排序"><a href="#ps-按进程消耗内存多少排序" class="headerlink" title="ps-按进程消耗内存多少排序"></a>ps-按进程消耗内存多少排序</h3><blockquote>
+<p>ps -eo rss,pmem,pcpu,vsize,args |  sort -k 1 -r -n | less</p>
+</blockquote>
+<p>解析:<br>-e 是显示所有进程, -o是定制显示信息的格式</p>
+<p>rss: resident set size, 表示进程占用RAM(内存)的大小，单位是KB<br>pmem: %M, 占用内存的百分比<br>pcpu：%C，占用cpu的百分比<br>vsize: 表示进程占用的虚拟内存的大小，KB<br>args：进程名（command）</p>
+<p>sort命令对ps结果进行排序<br>-k 1 :按第一个参数 rss进行排序<br>-r：逆序<br>-n：numeric，按数字来排序</p>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><ul>
+<li>实现目标</li>
+<li>团队管理</li>
+<li>技术细节</li>
+<li>遇到困难与解决</li>
+<li>成果</li>
+<li>对未来工作规划</li>
+</ul>
+<p>首先，研究生期间做的是一个关于加密文件系统的项目，目标是设计并实现一种基于linux 的透明加密文件系统。</p>
+<p>我比较完整的参与了整个项目，包括需求分析，整体架构，代码实现，文档撰写等工作。<br>刚开始阶段，主要是对相关产品的调研，对同类产品的优劣进行对比。我们几个团队在不同的平台独立实现需求的功能。我负责的小组经过前期的调研，初步拟定三种可行路线，1是直接修改内核源码。又分为两种思路：一种是在普通文件系统中直接加入加密功能，考虑到不同文件系统的兼容，了解到虚拟文件系统的相关概念后，提出第二种方案是修改VFS层的读写函数vfs_read和vfs_write，屏蔽了底层具体文件系统的操作第一种方案有其固有的优势，在效率安全性上有一定的保障，因为加密操作在内核层完成，破解就相当于攻破了整个系统，但是其开发难度较大，而且使用不便不利于推广和升级。第二种是直接在应用层做，这种方法最简单，但是在稳定性，安全性和效率的存在严重问题。结合前两种的优劣，我们考虑折衷方案，将加密服务集成到文件系统这一层面来解决上面的问题。加密文件的内容一般经过对称密钥算法加密后以密文的形式存放在物理介质上。<br>这种加密文件系统可以看成一个加密/解密的转换层，而并不是一个真实的全功能文件系统。堆叠式加密文件系统没有相应的磁盘布局，也不实现数据在物理介质上存取的功能。它必须架构在别的普通文件系统之上，读加密文件时先通过下层普通文件系统将文件的密文读入内存，解密后再将明文返回到上层的用户进程；写加密文件时先将内存中的明文加密，然后传给下层普通文件系统，由它们真正地写入物理介质。堆叠式加密文件的优势在于实现相对容易（因为功能相对简单）且用户可以任意选择下层的普通文件系统来存放加密文件。</p>
+<p>技术细节：</p>
+<p>遇到问题与解决：</p>
+<ol>
+<li>wrapfs文件系统无法安装。根据官网说明通过打补丁的方法添加到源码树，编译即可生成对应的.ko文件，然后挂载即可使用。中间遇到两个问题，一是无法编译，原因是内核版本和补丁文件版本不一致。解决方案：修改源码树中Makefile的版本号（extraversion=-XX-generic），然后编译，生成version.h 和utsrelease.h 里面包含版本信息，在编译模块的时候需要使用。由于使用的内核源码树和当前系统ubuntu内核版本不完全一致（ubuntu有个后缀-XX-generic）。</li>
+<li>无法装载模块。先查看出错的日志信息，发现是版本问题，但是之前已经对版本号进行了修改，对比当前系统其他可用模块的modinfo信息，在另一台手动编译内核的机器上却没有问题。为了排除是不是之前版本修改的问题，写了一个只有执行内核打印的模块，在编译后同样无法运行，同时发现生成的Module.symvers文件为空。搜索相关资料发现，Linux 对可装载模块采取了两层验证：模块的 CRC 值校验和 vermagic 的检查。 linux2.6之后的版本在加载模块的时候采用了版本校验机制，当期望加载模块的系统环境与当前环境不一样的时候，就会出现加载失败</li>
+<li>内核调试困难。 由于条件所限，无法使用kgdb等，只能使用printk打印。注释代码，来锁定问题。大部分问题出在kmalloc和对用户空间内核空间转换上。</li>
+<li></li>
+</ol>
+<p>产品优势是：<br>1、透明，可以无缝升级。<br>2、兼容，可以适用不同的操作系统。<br>3、可定制化，针对企业不同需求提供不同安全等级。<br>4、后续可提供产品维护，容灾备份，以及数据分析等功能（作为精细化，提高用户体验的部分）。</p>
 
       
     </div>
@@ -668,7 +858,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cin输入内容保存到vector容器"><span class="nav-text">cin输入内容保存到vector容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用迭代器输出vector容器内容"><span class="nav-text">使用迭代器输出vector容器内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字int字符串string相互转化"><span class="nav-text">数字（int）字符串（string）相互转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字逆置消除前导0"><span class="nav-text">数字逆置（消除前导0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#易错"><span class="nav-text">易错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#erase使用"><span class="nav-text">erase使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector对象高效增长"><span class="nav-text">vector对象高效增长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范围for语句体内不应该改变vector容量的大小"><span class="nav-text">范围for语句体内不应该改变vector容量的大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点补充"><span class="nav-text">知识点补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序"><span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-text">堆排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cc部分"><span class="nav-text">C/C++部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有符号类型和无符号类型"><span class="nav-text">有符号类型和无符号类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const"><span class="nav-text">const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用和指针"><span class="nav-text">引用和指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof"><span class="nav-text">sizeof()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qsort-sort"><span class="nav-text">qsort() sort()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚函数virtual-function虚函数表virtual-table"><span class="nav-text">虚函数（Virtual Function）虚函数表（Virtual Table）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式存储"><span class="nav-text">分布式存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#acid特性"><span class="nav-text">ACID特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cap原理"><span class="nav-text">CAP原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#两阶段提交two-phase-commit"><span class="nav-text">两阶段提交（Two Phase Commit）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#paxos算法"><span class="nav-text">Paxos算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#cin输入内容保存到vector容器"><span class="nav-text">cin输入内容保存到vector容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用迭代器输出vector容器内容"><span class="nav-text">使用迭代器输出vector容器内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字int字符串string相互转化"><span class="nav-text">数字（int）字符串（string）相互转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字逆置消除前导0"><span class="nav-text">数字逆置（消除前导0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#易错"><span class="nav-text">易错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#erase使用"><span class="nav-text">erase使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vector对象高效增长"><span class="nav-text">vector对象高效增长</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#范围for语句体内不应该改变vector容量的大小"><span class="nav-text">范围for语句体内不应该改变vector容量的大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识点补充"><span class="nav-text">知识点补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序算法"><span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序"><span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序"><span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归并排序"><span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基数排序"><span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#希尔排序"><span class="nav-text">希尔排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆排序"><span class="nav-text">堆排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cc部分"><span class="nav-text">C/C++部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强制类型转换"><span class="nav-text">强制类型转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面向对象特征"><span class="nav-text">面向对象特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的指针参数"><span class="nav-text">函数的指针参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数模版"><span class="nav-text">函数模版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有符号类型和无符号类型"><span class="nav-text">有符号类型和无符号类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#const"><span class="nav-text">const</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sizeof"><span class="nav-text">sizeof()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#qsort-sort"><span class="nav-text">qsort() sort()</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆栈空间"><span class="nav-text">堆栈空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态分配与释放空间"><span class="nav-text">动态分配与释放空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数与析构函数"><span class="nav-text">构造函数与析构函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#哈希函数-构造-冲突处理"><span class="nav-text">哈希函数 构造 冲突处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚函数virtual-function虚函数表virtual-table"><span class="nav-text">虚函数（Virtual Function）虚函数表（Virtual Table）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#死锁"><span class="nav-text">死锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式存储"><span class="nav-text">分布式存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流行云计算分布式存储系统"><span class="nav-text">流行云计算分布式存储系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性模型"><span class="nav-text">一致性模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#acid特性"><span class="nav-text">ACID特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cap原理"><span class="nav-text">CAP原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nwr模型"><span class="nav-text">NWR模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两阶段提交two-phase-commit"><span class="nav-text">两阶段提交（Two Phase Commit）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#paxos算法"><span class="nav-text">Paxos算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟化技术"><span class="nav-text">虚拟化技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-相关问题以及个人遇到问题"><span class="nav-text">Linux 相关问题，以及个人遇到问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程间通信"><span class="nav-text">进程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osi网络模型"><span class="nav-text">OSI网络模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tcp的3次握手"><span class="nav-text">TCP的3次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#http常见状态码"><span class="nav-text">http常见状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#socket-编程"><span class="nav-text">socket 编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#大端模式小端模式判断"><span class="nav-text">大端模式小端模式判断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据存储优先顺序"><span class="nav-text">数据存储优先顺序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#io多路复用解决方法"><span class="nav-text">I/O多路复用解决方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存管理"><span class="nav-text">内存管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell统计文本中单词出现次数"><span class="nav-text">shell统计文本中单词出现次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-按进程消耗内存多少排序"><span class="nav-text">ps-按进程消耗内存多少排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-text">项目介绍</span></a></div>
             
 
           </div>
